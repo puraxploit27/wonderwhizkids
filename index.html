@@ -27,6 +27,28 @@
     pointer-events: none;
   }
 </style>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('images/bg.jpg'); /* change image as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+    z-index: -1;
+    pointer-events: none;
+  }
+</style>
 
 
 </head>
@@ -90,7 +112,7 @@
         <p>Inclusive environment supporting language-rich play.</p>
       </div>
       <div class="card" data-aos="zoom-in">
-        <h3>CACHE Certified Staff</h3>
+        <h3>CACHE level Certified Staff</h3>
         <p>Professionally trained, caring, and creative educators.</p>
       </div>
       <div class="card" data-aos="zoom-in">
