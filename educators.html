@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Educators | Wonder Whiz Kids Nursery</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Baloo+2&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+<div class="falling-stars-container"></div>
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="images/teddy.gif" alt="Loading...">
+  </div>
+
+  <!-- Header -->
+  <header>
+    <img src="images/main-logo.png" class="logo" alt="Wonder Whiz Logo">
+    <h1>Our Educators</h1>
+    <p>Passionate professionals shaping young minds with care and creativity</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="curriculum.html">Curriculum</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="educators.html">Educators</a></li>
+    <li><a href="timings.html">Timings</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+
+  <!-- Educators Info -->
+  <section data-aos="fade-up">
+    <h2>Meet Our Educators</h2>
+    <p>At Wonder Whiz Kids Nursery, we take immense pride in the quality and dedication of our teaching team. Our staff members are more than just teachers – they are facilitators, caregivers, and passionate partners in your child’s early learning journey.</p>
+  </section>
+
+  <section class="grid" data-aos="fade-up">
+    <div class="card">
+      <h3>CACHE Level 3 – 5 Certified Teachers</h3>
+      <p>Our teachers meet international standards in early years education.</p>
+    </div>
+    <div class="card">
+      <h3>First Aid & Pediatric CPR Trained</h3>
+      <p>Child safety is our top priority, always.</p>
+    </div>
+    <div class="card">
+      <h3>Multilingual, Multicultural</h3>
+      <p>Our diverse staff supports inclusive, global learning experiences.</p>
+    </div>
+    <div class="card">
+      <h3>Supportive Teaching Assistants</h3>
+      <p>Experienced assistants support smooth classroom routines and emotional care.</p>
+    </div>
+    <div class="card">
+      <h3>Continuous Professional Development</h3>
+      <p>Our team undergoes regular training to stay current with educational practices.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Wonder Whiz Kids Nursery | Designed with ❤ in Dubai</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 500,      // Animation speed
+    delay: 0,           // No delay
+    offset: 0,        // Trigger animation 150px before element enters viewport
+    once: true          // Animate only once
+  });
+
+  window.addEventListener("load", () => {
+    document.getElementById("preloader").style.display = "none";
+  });
+</script>
+<script>
+  const container = document.querySelector('.falling-stars-container');
+
+  for (let i = 0; i < 25; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.animationDuration = 2 + Math.random() * 3 + 's';
+    star.style.animationDelay = Math.random() * 5 + 's';
+    container.appendChild(star);
+  }
+</script>
+
+
+
+
+</body>
+</html>

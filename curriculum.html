@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum | Wonder Whiz Kids Nursery</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Baloo+2&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+<div class="falling-stars-container"></div>
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="images/teddy.gif" alt="Loading...">
+  </div>
+
+  <!-- Header -->
+  <header>
+    <img src="images/main-logo.png" class="logo" alt="Wonder Whiz Logo">
+    <h1>Our Curriculum</h1>
+    <p>Rooted in British EYFS, crafted for every curious mind</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="curriculum.html">Curriculum</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="educators.html">Educators</a></li>
+    <li><a href="timings.html">Timings</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+  <!-- Curriculum Section -->
+  <section data-aos="fade-up">
+    <h2>Early Years Foundation Stage (EYFS)</h2>
+    <p>The EYFS framework sets the standards for the learning, development and care of children from birth to 5 years old in the UK – and we bring this excellence to Dubai.</p>
+  </section>
+
+  <section class="grid" data-aos="fade-up">
+    <div class="card">
+      <h3>Personal, Social & Emotional Development</h3>
+      <p>Helping children develop a positive sense of themselves and others.</p>
+    </div>
+    <div class="card">
+      <h3>Communication and Language</h3>
+      <p>Fostering listening, understanding, and speaking skills in a language-rich environment.</p>
+    </div>
+    <div class="card">
+      <h3>Physical Development</h3>
+      <p>Developing coordination, control, movement, and healthy habits.</p>
+    </div>
+    <div class="card">
+      <h3>Literacy and Mathematics</h3>
+      <p>Exploring reading, writing, number sense, and patterns through play.</p>
+    </div>
+    <div class="card">
+      <h3>Understanding the World</h3>
+      <p>Encouraging exploration, observation, and discussion about the world.</p>
+    </div>
+    <div class="card">
+      <h3>Expressive Arts and Design</h3>
+      <p>Creating through music, movement, art, role play, and storytelling.</p>
+    </div>
+  </section>
+
+  <section data-aos="fade-up">
+    <h2>Teaching Approach</h2>
+    <ul class="custom-list">
+      <li>Play-based and child-initiated learning</li>
+      <li>Individualized Learning Plans</li>
+      <li>Observational Assessments</li>
+      <li>Focus on school readiness and holistic development</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Wonder Whiz Kids Nursery | Designed with ❤ in Dubai</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 500,      // Animation speed
+    delay: 0,           // No delay
+    offset: 50,        // Trigger animation 150px before element enters viewport
+    once: true          // Animate only once
+  });
+
+  window.addEventListener("load", () => {
+    document.getElementById("preloader").style.display = "none";
+  });
+</script>
+<script>
+  const container = document.querySelector('.falling-stars-container');
+
+  for (let i = 0; i < 25; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.animationDuration = 2 + Math.random() * 3 + 's';
+    star.style.animationDelay = Math.random() * 5 + 's';
+    container.appendChild(star);
+  }
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Wonder Whiz Kids Nursery</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Baloo+2&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+<div class="falling-stars-container"></div>
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="images/teddy.gif" alt="Loading...">
+  </div>
+
+  <!-- Header -->
+  <header>
+    <img src="images/main-logo.png" class="logo" alt="Wonder Whiz Logo">
+    <h1>Gallery</h1>
+    <p>Peek into the joyful world of Wonder Whiz Kids</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="curriculum.html">Curriculum</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="educators.html">Educators</a></li>
+    <li><a href="timings.html">Timings</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+  <!-- Gallery Section -->
+  <section data-aos="fade-up">
+    <h2>Our Interiors & Special Moments</h2>
+    <div class="gallery-grid">
+      <img src="images/gallery1.jpg" alt="Classroom">
+      <img src="images/gallery2.jpg" alt="Outdoor play">
+      <img src="images/gallery3.jpg" alt="Art activity">
+      <img src="images/gallery4.jpg" alt="Festival celebration">
+      <img src="images/gallery5.jpg" alt="STEM activity">
+      <img src="images/gallery6.jpg" alt="Music time">
+      <img src="images/gallery7.jpg" alt="Yoga for kids">
+      <img src="images/gallery8.jpg" alt="Parent-child workshop">
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Wonder Whiz Kids Nursery | Designed with ❤ in Dubai</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 500,      // Animation speed
+    delay: 0,           // No delay
+    offset: 0,        // Trigger animation 150px before element enters viewport
+    once: true          // Animate only once
+  });
+
+  window.addEventListener("load", () => {
+    document.getElementById("preloader").style.display = "none";
+  });
+</script>
+<script>
+  const container = document.querySelector('.falling-stars-container');
+
+  for (let i = 0; i < 25; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.animationDuration = 2 + Math.random() * 3 + 's';
+    star.style.animationDelay = Math.random() * 5 + 's';
+    container.appendChild(star);
+  }
+</script>
+
+
+
+
+</body>
+</html>

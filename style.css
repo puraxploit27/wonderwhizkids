@@ -1,0 +1,630 @@
+/* === FONT IMPORT === */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&family=Fredoka&display=swap');
+
+/* === BASE === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Neue', cursive;
+  background: #cddbb0;
+  color: #444;
+  scroll-behavior: smooth;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 0.5;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* === HEADER === */
+header {
+  background: linear-gradient(135deg, #fff1dd, #ffe8c6);
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+header h1 {
+  font-family: 'Fredoka', cursive;
+  font-size: 46px;
+  color: #e3783c;
+  text-shadow: 2px 2px #fff0e0;
+  animation: popIn 1s ease-in-out;
+}
+
+header p {
+  font-size: 20px;
+  color: #935b2d;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+/* === NAVIGATION === */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+   
+  padding: 15px 0;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.06);
+}
+
+nav a {
+  font-family: 'Fredoka', cursive;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 22px;
+  margin: 0 12px;
+  background: #c2e59c;
+  border-radius: 12px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  font-size: 18px;
+}
+
+nav a:hover {
+  background: #afd98c;
+  transform: scale(1.1);
+}
+
+/* === SECTION HEADINGS === */
+h1, h2, h3, h4, h5, h6, .fancy-heading {
+  font-family: 'Fredoka', cursive;
+  color: #e3783c;
+  font-size: 34px;
+  margin: 40px auto 20px;
+  background: #fdf0db;
+  padding: 15px 30px;
+  border-radius: 20px;
+  text-align: center;
+  animation: bounceIn 0.8s ease-in-out;
+
+  /* Removed dashed border */
+  border: none;
+  box-shadow: 0 0 10px rgba(255, 187, 102, 0.3);
+}
+
+/* === PARAGRAPH TEXT === */
+p {
+  text-align: center;
+  margin: 0 auto 20px;
+  max-width: 850px;
+  line-height: 1.85;
+  font-size: 17px;
+  color: #444;
+}
+
+/* === EMOJI LISTS === */
+ul.emoji-list {
+  list-style: none;
+  padding: 0;
+  margin: 30px auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+ul.emoji-list li {
+  display: inline-block;
+  width: 100%;
+  background: #fff0de;
+  padding: 14px 22px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  font-size: 18px;
+  color: #333;
+  transition: transform 0.3s;
+}
+
+ul.emoji-list li:hover {
+  transform: translateX(10px);
+}
+
+/* === CUSTOM BULLET LIST === */
+ul.custom-list {
+  list-style: none;
+  padding: 0;
+  margin: 30px auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+ul.custom-list li {
+  position: relative;
+  font-size: 18px;
+  margin: 10px auto;
+  background: #fcecd6;
+  border-radius: 12px;
+  padding: 12px 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2d2d2d;
+}
+
+ul.custom-list li::before {
+  content: '🍃';
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+/* === CONTACT FORM === */
+form.contact-form {
+  max-width: 600px;
+  margin: 0 auto 50px;
+  padding: 35px;
+  background: #fff0de;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+form.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-family: 'Fredoka', cursive;
+  font-size: 17px;
+  color: #8a542a;
+}
+
+form.contact-form input,
+form.contact-form textarea {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border: 2px solid #ffddb3; /* Changed from dashed to solid */
+  border-radius: 10px;
+  font-family: 'Comic Neue', cursive;
+  font-size: 16px;
+  background: #fffdf8;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.02);
+  transition: 0.3s ease-in-out;
+}
+
+form.contact-form input:focus,
+form.contact-form textarea:focus {
+  outline: none;
+  border-color: #f8b84e;
+  box-shadow: 0 0 6px rgba(248, 184, 78, 0.4);
+}
+
+form.contact-form button {
+  background: #f8b84e;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  font-size: 18px;
+  font-family: 'Comic Neue', cursive;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  /* Removed dashed border */
+  box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+}
+
+form.contact-form button:hover {
+  background: #e9a136;
+  transform: scale(1.05);
+}
+
+/* === BUTTONS === */
+.button {
+  display: inline-block;
+  font-family: 'Comic Neue', cursive;
+  background: #f8b84e;
+  color: white;
+  padding: 14px 28px;
+  font-size: 18px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: none; /* Removed dashed border */
+}
+
+.button:hover {
+  background: #e9a136;
+  transform: scale(1.05);
+}
+
+.button::after {
+  content: " 🎈";
+}
+
+/* === BALLOON BACKGROUND === */
+.balloon {
+  position: fixed;
+  width: 60px;
+  height: 90px;
+  opacity: 0.12;
+  z-index: 0;
+  pointer-events: none;
+  background: url('https://i.ibb.co/SrPSsp8/balloon.png') no-repeat center center / contain;
+  animation: floatBalloon 6s ease-in-out infinite;
+}
+
+.balloon.one { top: 100px; left: 5%; }
+.balloon.two { top: 150px; right: 5%; animation-delay: 3s; }
+
+/* === FOOTER === */
+footer {
+  background: #eef9e9;
+  color: #537f3d;
+  text-align: center;
+  padding: 30px;
+  font-size: 16px;
+  border-top: 2px solid #c9e8bd; /* Changed from dashed to solid */
+}
+
+/* === ANIMATIONS === */
+@keyframes popIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+@keyframes floatBalloon {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+}
+.star {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffd700;
+  animation: twinkle 2s infinite ease-in-out;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+}
+.logo {
+  max-width: 180px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+.container {
+  min-height: 100vh;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Neue', cursive;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+  background: #fff7f0; /* or your preferred background */
+}
+
+main, section {
+  display: block;
+  position: relative;
+  overflow: visible;
+  padding-bottom: 40px;
+  z-index: 1;
+}
+.scroll-animate {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+.scroll-animate.visible {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+/* === Preloader with Teddy Bear === */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: #fff4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+.teddy-container {
+  text-align: center;
+}
+
+.teddy {
+  width: 150px;
+  animation: floatTeddy 1.5s ease-in-out infinite;
+}
+
+.loading-text {
+  margin-top: 10px;
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.2rem;
+  color: #ff69b4;
+  animation: blinkText 1s ease-in-out infinite;
+}
+
+@keyframes floatTeddy {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes blinkText {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.falling-stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* allows clicks to go through */
+  z-index: 1; /* keep behind other content */
+  overflow: hidden;
+}
+
+.falling-stars-container::before,
+.falling-stars-container::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(transparent, white);
+  animation: fall 3s linear infinite;
+  opacity: 0.7;
+}
+
+.falling-stars-container::after {
+  left: 80%;
+  animation-delay: 1.5s;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) translateX(0) rotate(45deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(100vh) translateX(-30vw) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Optional: Add multiple stars with animation delay */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.star {
+  position: absolute;
+  top: -80px;
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(transparent, gold);
+  opacity: 0.8;
+  transform: rotate(45deg);
+  animation: fall 5s linear infinite;
+}
+/* === FANCY MENU BAR === */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #b6e2a1;
+  padding: 12px 15px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
+}
+
+nav a {
+  text-decoration: none;
+  color: #444;
+  margin: 0 10px;
+  font-weight: 600;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d35400;
+  text-shadow: 1px 1px #fff;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  color: #6d4c41;
+  background: #fff3e0;
+  padding: 10px 18px;
+  border-radius: 30px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.menu li a:hover {
+  background: #ffcc80;
+  color: #3e2723;
+  transform: scale(1.08);
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.15);
+}
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    text-align: center;
+  }
+
+  .logo {
+    max-width: 200px;
+    margin-bottom: 12px;
+  }
+}
+@media (max-width: 768px) {
+  nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .logo {
+    max-width: 500px;
+    margin-right: 10px;
+  }
+
+  nav a {
+    font-size: 14px;
+    margin: 4px 6px;
+  }
+}
+/* === HEADER === */
+header {
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px 10px;
+}
+
+/* LOGO Default (Desktop) */
+.logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* === NAVIGATION === */
+nav {
+  background-color: #4CAF50;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.menu li {
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Menu links */
+.menu a {
+  display: block;
+  padding: 12px 16px;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+//* === MOBILE: Medium logo + 2 menu items per row === */
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 200px; /* Medium logo for phones */
+    display: block;
+    margin: 10px auto; /* Centered on mobile */
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu li {
+    width: 50%; /* 2 items per row */
+    list-style: none;
+    text-align: center;
+    padding: 10px 0;
+    border: 1px solid #66bb6a;
+    box-sizing: border-box;
+  }
+
+  .menu li a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+
+/* === DEFAULT (Desktop) Logo === */
+.logo {
+  width: 1000px; /* Big logo on desktop */
+  display: block;
+  margin: 10px auto;
+}
+
+

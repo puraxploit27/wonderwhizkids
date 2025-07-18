@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programs | Wonder Whiz Kids Nursery</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Baloo+2&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    table {
+      width: 90%;
+      max-width: 800px;
+      margin: 30px auto;
+      border-collapse: collapse;
+      background: #fff3e8;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #e9c7ac;
+    }
+    th {
+      background-color: #f9d6b8;
+      color: #5a4635;
+      font-family: 'Baloo 2', cursive;
+    }
+    td {
+      font-family: 'Quicksand', sans-serif;
+    }
+  </style>
+</head>
+<body>
+<div class="falling-stars-container"></div>
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="images/teddy.gif" alt="Loading...">
+  </div>
+
+  <!-- Header -->
+  <header>
+    <img src="images/main-logo.png" class="logo" alt="Wonder Whiz Logo">
+    <h1>Our Programs</h1>
+    <p>Tailored journeys for every stage of early development</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="curriculum.html">Curriculum</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="educators.html">Educators</a></li>
+    <li><a href="timings.html">Timings</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+
+  <!-- Programs Table -->
+  <section data-aos="fade-up">
+    <h2>Programs by Age Group</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Age Group</th>
+          <th>Program Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>45 days – 12 months</td>
+          <td>Infant Room</td>
+          <td>Safe, nurturing environment with sensory exploration</td>
+        </tr>
+        <tr>
+          <td>1 – 2 years</td>
+          <td>Toddler Explorers</td>
+          <td>Encouraging independence and curiosity</td>
+        </tr>
+        <tr>
+          <td>2 – 3 years</td>
+          <td>Pre-Nursery Whizzers</td>
+          <td>Building communication and motor skills</td>
+        </tr>
+        <tr>
+          <td>3 – 4 years</td>
+          <td>Foundation Stage 1</td>
+          <td>Introducing structured learning and routines</td>
+        </tr>
+        <tr>
+          <td>4 – 5 years</td>
+          <td>Foundation Stage 2</td>
+          <td>Preparing for primary school transitions</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Wonder Whiz Kids Nursery | Designed with ❤ in Dubai</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 500,      // Animation speed
+    delay: 0,           // No delay
+    offset: 0,        // Trigger animation 150px before element enters viewport
+    once: true          // Animate only once
+  });
+
+  window.addEventListener("load", () => {
+    document.getElementById("preloader").style.display = "none";
+  });
+</script>
+<script>
+  const container = document.querySelector('.falling-stars-container');
+
+  for (let i = 0; i < 25; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.animationDuration = 2 + Math.random() * 3 + 's';
+    star.style.animationDelay = Math.random() * 5 + 's';
+    container.appendChild(star);
+  }
+</script>
+
+
+
+
+</body>
+</html>

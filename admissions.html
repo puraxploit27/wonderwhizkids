@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admissions | Wonder Whiz Kids Nursery</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Baloo+2&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+<div class="falling-stars-container"></div>
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="images/teddy.gif" alt="Loading...">
+  </div>
+
+  <!-- Header -->
+  <header>
+    <img src="images/main-logo.png" class="logo" alt="Wonder Whiz Logo">
+    <h1>Admissions</h1>
+    <p>Start your child’s journey of wonder with us</p>
+  </header>
+
+  <!-- Navigation -->
+ <nav>
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="curriculum.html">Curriculum</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="educators.html">Educators</a></li>
+    <li><a href="timings.html">Timings</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+
+  <!-- Admission Process -->
+  <section data-aos="fade-up">
+    <h2>Admission Process</h2>
+    <ul class="custom-list">
+      <li>Schedule a tour or consultation</li>
+      <li>Submit registration form and documents</li>
+      <li>Pay registration and term fees</li>
+      <li>Orientation & settling-in phase</li>
+    </ul>
+  </section>
+
+  <!-- Required Documents -->
+  <section data-aos="fade-up">
+    <h2>Documents Required</h2>
+    <ul class="custom-list">
+      <li>Passport copies (child + parents)</li>
+      <li>Emirates ID (child + parents)</li>
+      <li>Vaccination records</li>
+      <li>Passport size photos</li>
+    </ul>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="hero" data-aos="fade-up">
+    <h2>Book a Tour Today!</h2>
+    <p>We’d love to meet you and your little one. Schedule a tour and experience our magical learning environment in person.</p>
+    <a href="contact.html" class="cta-btn">Schedule Now</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Wonder Whiz Kids Nursery | Designed with ❤ in Dubai</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 500,      // Animation speed
+    delay: 0,           // No delay
+    offset: 0,        // Trigger animation 150px before element enters viewport
+    once: true          // Animate only once
+  });
+
+  window.addEventListener("load", () => {
+    document.getElementById("preloader").style.display = "none";
+  });
+</script>
+<script>
+  const container = document.querySelector('.falling-stars-container');
+
+  for (let i = 0; i < 25; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.animationDuration = 2 + Math.random() * 3 + 's';
+    star.style.animationDelay = Math.random() * 5 + 's';
+    container.appendChild(star);
+  }
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Wonder Whiz Kids Nursery</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Baloo+2&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+<div class="falling-stars-container"></div>
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="images/teddy.gif" alt="Loading...">
+  </div>
+
+  <!-- Header -->
+  <header>
+    <img src="images/main-logo.png" class="logo" alt="Wonder Whiz Logo">
+    <h1>About Us</h1>
+    <p>Learn more about our journey and values</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="curriculum.html">Curriculum</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="educators.html">Educators</a></li>
+    <li><a href="timings.html">Timings</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+
+  <!-- About Content -->
+  <section data-aos="fade-up">
+    <h2>Our Philosophy</h2>
+    <p>
+      At Wonder Whiz Kids Nursery, we believe every child is born with a sense of curiosity and imagination.
+      Our mission is to nurture this wonder through wisdom-rich experiences.
+    </p>
+  </section>
+
+  <section data-aos="fade-up">
+    <h2>Vision</h2>
+    <p>
+      To build confident, compassionate, and creative young learners in a safe, inclusive and joyful setting.
+    </p>
+  </section>
+
+  <section data-aos="fade-up">
+    <h2>Mission</h2>
+    <p>
+      To provide a high-quality British early years education that supports the holistic development of each child
+      in line with KHDA standards.
+    </p>
+  </section>
+
+  <section data-aos="fade-up">
+    <h2>Why Choose Us?</h2>
+    <ul class="custom-list">
+      <li> KHDA Licensed</li>
+      <li> British EYFS Curriculum</li>
+      <li> Experienced, Certified Educators</li>
+      <li> Flexible Timings for Every Family</li>
+      <li> Strong Parent Partnerships</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Wonder Whiz Kids Nursery | Designed with ❤ in Dubai</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 500,      // Animation speed
+    delay: 0,           // No delay
+    offset: 0,        // Trigger animation 150px before element enters viewport
+    once: true          // Animate only once
+  });
+
+  window.addEventListener("load", () => {
+    document.getElementById("preloader").style.display = "none";
+  });
+</script>
+<script>
+  const container = document.querySelector('.falling-stars-container');
+
+  for (let i = 0; i < 25; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.animationDuration = 2 + Math.random() * 3 + 's';
+    star.style.animationDelay = Math.random() * 5 + 's';
+    container.appendChild(star);
+  }
+</script>
+
+
+
+</body>
+</html>
