@@ -556,7 +556,7 @@ header {
 
 /* === NAVIGATION === */
 nav {
-  background-color: #4CAF50;
+  background-color: #5B7137;
   width: 100%;
   overflow-x: hidden;
 }
@@ -625,6 +625,44 @@ nav {
   width: 1000px; /* Big logo on desktop */
   display: block;
   margin: 10px auto;
+}
+.cta-btn {
+  background-color: #5B7137;    /* Olive green */
+  color: white;                 /* White text */
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  margin: 5px;
+  display: inline-block;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #3e4d25;   /* Darker olive on hover */
+}
+.navbar {
+  background-color: #5B7137;         /* Olive green */
+  display: flex;                     /* Side by side layout */
+  justify-content: center;           /* Center the links */
+  align-items: center;
+  padding: 15px 0;                   /* Top & bottom padding */
+  flex-wrap: wrap;                   /* Allows wrapping on small screens */
+}
+
+.navbar a {
+  color: white;                      /* White text */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;                   /* Larger text */
+  margin: 0 15px;                    /* Horizontal spacing */
+  padding: 10px 16px;                /* Inside padding (more button-like) */
+  border-radius: 8px;                /* Rounded corners */
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #3e4d25;         /* Darker olive on hover */
 }
 
 
