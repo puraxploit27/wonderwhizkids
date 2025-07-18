@@ -665,4 +665,10 @@ nav {
   background-color: #3e4d25;         /* Darker olive on hover */
 }
 
+.logo-heading {
+  font-family: 'Chewy', cursive;
+  color: #5B7137;
+  font-size: 3rem;
+  text-align: center;
+}
 
