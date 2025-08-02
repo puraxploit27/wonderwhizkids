@@ -28,24 +28,26 @@
 </style>
 
   <style>
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-    .gallery-grid img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .gallery-grid img:hover {
-      transform: scale(1.05);
-    }
-  </style>
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.gallery-grid div {
+  text-align: center;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  max-height: 250px;
+}
+</style>
+
 </head>
 <body>
 <div class="falling-stars-container"></div>
@@ -77,19 +79,82 @@
 </nav>
 
   <!-- Gallery Section -->
-  <section data-aos="fade-up">
-    <h2>Our Interiors & Special Moments</h2>
-    <div class="gallery-grid">
-      <img src="images/gallery1.jpg" alt="Classroom">
-      <img src="images/gallery2.jpg" alt="Outdoor play">
-      <img src="images/gallery3.jpg" alt="Art activity">
-      <img src="images/gallery4.jpg" alt="Festival celebration">
-      <img src="images/gallery5.jpg" alt="STEM activity">
-      <img src="images/gallery6.jpg" alt="Music time">
-      <img src="images/gallery7.jpg" alt="Yoga for kids">
-      <img src="images/gallery8.jpg" alt="Parent-child workshop">
+<section data-aos="fade-up">
+  <h2>Our Interiors & Special Moments</h2>
+  <div class="gallery-grid">
+    
+    <div>
+      <img src="images/gallery1.jpg" alt="Pathway">
+      <p class="text-center text-sm mt-1">Pathway</p>
     </div>
-  </section>
+
+    <div>
+      <img src="images/gallery2.jpg" alt="Playarea">
+      <p class="text-center text-sm mt-1">Play Area – Outdoor Fun</p>
+    </div>
+
+    <div>
+      <img src="images/gallery3.jpg" alt="Playarea 2">
+      <p class="text-center text-sm mt-1">Play Area – Creative Corner</p>
+    </div>
+
+    <div>
+      <img src="images/gallery4.jpg" alt="Reception 1">
+      <p class="text-center text-sm mt-1">Reception – Entry Zone</p>
+    </div>
+
+    <div>
+      <img src="images/gallery5.jpg" alt="Reception 2">
+      <p class="text-center text-sm mt-1">Reception – Welcome Desk</p>
+    </div>
+
+    <div>
+      <img src="images/gallery6.jpg" alt="Sleeping Room">
+      <p class="text-center text-sm mt-1">Nap Room – Cozy Sleep Space</p>
+    </div>
+
+    <div>
+      <img src="images/gallery7.jpg" alt="Classroom 1">
+      <p class="text-center text-sm mt-1">Sunshine Room – Literacy & Stories</p>
+    </div>
+
+    <div>
+      <img src="images/gallery8.jpg" alt="Classroom 2">
+      <p class="text-center text-sm mt-1">Rainbow Room – Colors & Art</p>
+    </div>
+
+    <div>
+      <img src="images/gallery9.jpg" alt="Classroom 3">
+      <p class="text-center text-sm mt-1">Discovery Room – STEM Learning</p>
+    </div>
+
+    <div>
+      <img src="images/gallery10.jpg" alt="Classroom 4">
+      <p class="text-center text-sm mt-1">Adventure Room – Role Play</p>
+    </div>
+
+    <div>
+      <img src="images/gallery11.jpg" alt="Classroom 5">
+      <p class="text-center text-sm mt-1">Music Room – Sounds & Songs</p>
+    </div>
+
+    <div>
+      <img src="images/gallery12.jpg" alt="Classroom 6">
+      <p class="text-center text-sm mt-1">Wonder Room – Early Explorers</p>
+    </div>
+
+    <div>
+      <img src="images/gallery13.jpg" alt="Classroom 7">
+      <p class="text-center text-sm mt-1">Imagination Room – Drama & Dance</p>
+    </div>
+
+    <div>
+      <img src="images/gallery14.jpg" alt="Elevation">
+      <p class="text-center text-sm mt-1">Elevation – Building View</p>
+    </div>
+
+  </div>
+</section>
 
   <footer>
     <p>&copy; 2025 Wonder Whiz Kids Nursery | Designed with ❤ in Dubai</p>
@@ -121,9 +186,6 @@
     container.appendChild(star);
   }
 </script>
-
-
-
 
 </body>
 </html>
