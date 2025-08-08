@@ -1,75 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>images/title.png</title>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Baloo+2&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Programs | Wonder Whiz Kids Nursery</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Baloo+2&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
   body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/bg2.jpg'); /* 👈 Change for each page */
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('images/bg6.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.25; /* 👈 Controls how light it looks */
+    opacity: 0.25;
     z-index: -1;
     pointer-events: none;
   }
+
+  /* Navigation & Header Row */
+  .header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fdf0db;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    max-width: 300px;
+    height: auto;
+  }
+
+  .menu {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 8px 15px;
+    background-color: #fdf0db;
+    border-radius: 8px;
+  }
+
+  .menu li {
+    display: inline-block;
+  }
+
+  /* 🔹 Updated button colors (force override) */
+  .header-nav .menu a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff !important; /* white text */
+    background-color: #5B6F3C !important; /* peach/orange */
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+  }
+
+  .header-nav .menu a:hover {
+    background-color: #5B6F3C !important; /* darker peach/orange */
+    transform: scale(1.05);
+  }
+  /* Mobile toggle button */
+  .menu-toggle {
+    display: none;
+    background: #5B6F3C;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+  }
+  .menu-toggle:hover {
+    background: #5B6F3C;
+  }
+
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .header-nav {
+      flex-direction: column;
+      align-items: center;
+    }
+    .menu {
+      display: none;
+      flex-direction: column repeat (2, 1fr) ;
+      gap: 10px;
+      width: 100%;
+      border-radius: 0;
+    }
+    .menu li {
+      text-align: center;
+    }
+    .menu.active {
+      display: flex;
+    }
+    .menu-toggle {
+      display: block;
+      align-self: flex-start;
+    }
+    /* 🔹 Smaller logo for mobile */
+    .logo {
+      max-width: 220px;
+    }
+  }
+
+  /* WhatsApp Floating Button */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+  }
 </style>
-
-
-  <style>
-    table {
-      width: 90%;
-      max-width: 800px;
-      margin: 30px auto;
-      border-collapse: collapse;
-      background: #fff3e8;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    th, td {
-      padding: 15px;
-      text-align: left;
-      border-bottom: 1px solid #e9c7ac;
-    }
-    th {
-      background-color: #f9d6b8;
-      color: #5a4635;
-      font-family: 'Baloo 2', cursive;
-    }
-    td {
-      font-family: 'Quicksand', sans-serif;
-    }
-  </style>
 </head>
 <body>
-<div class="falling-stars-container"></div>
-  <!-- Preloader -->
-  <div id="preloader">
-    <img src="images/teddy.gif" alt="Loading...">
-  </div>
 
-  <!-- Header -->
-  <header>
-    <img src="images/main-logo.png" class="logo" alt="Wonder Whiz Logo">
-    <h1>Our Programs</h1>
-    <p>Tailored journeys for every stage of early development</p>
-  </header>
-
-  <!-- Navigation -->
-  <nav>
+<!-- Header + Navigation Combined -->
+<div class="header-nav">
+  <button class="menu-toggle">☰</button>
+  <img src="images/main-logo.png" class="logo" alt="Wonder Whiz Logo" />
   <ul class="menu">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
@@ -81,83 +161,89 @@
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-</nav>
+</div>
 
-
-  <!-- Programs Table -->
-  <section data-aos="fade-up">
-    <h2>Programs by Age Group</h2>
-    <table>
+<!-- Programs Section -->
+<section class="programs-section" data-aos="fade-up">
+  <h2 class="text-sm font-semibold">
+    📚 Programs by Age Group
+  </h2>
+  <div class="table-container" style="max-width: 900px; margin: auto; background: #fff7ec; padding: 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 4px solid #f7c59f;">
+    <table style="width: 100%; border-collapse: collapse; font-family: 'Baloo 2', cursive; color: #5d3b2c; font-size: 1rem;">
       <thead>
-        <tr>
-          <th>Age Group</th>
-          <th>Program Name</th>
-          <th>Description</th>
+        <tr style="background: linear-gradient(to right, #3E4D25, #3E4D25); color: white; text-align: left;">
+          <th style="padding: 12px; border: 2px solid #f7c59f; border-top-left-radius: 15px;">👶 Age Group</th>
+          <th style="padding: 12px; border: 2px solid #f7c59f;">🏫 Program</th>
+          <th style="padding: 12px; border: 2px solid #f7c59f; border-top-right-radius: 15px;">🎯 Key Focus Areas</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>45 days – 12 months</td>
-          <td>Infant Room</td>
-          <td>Safe, nurturing environment with sensory exploration</td>
+        <tr style="background-color: #ffffff; transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#fff2cc'" onmouseout="this.style.backgroundColor='#ffffff'">
+          <td style="padding: 12px; border: 2px solid #f7c59f;">6 months – 1 year</td>
+          <td style="padding: 12px; border: 2px solid #f7c59f;">🍼 Infant Care</td>
+          <td style="padding: 12px; border: 2px solid #f7c59f;">Sensory exploration, emotional security</td>
         </tr>
-        <tr>
-          <td>1 – 2 years</td>
-          <td>Toddler Explorers</td>
-          <td>Encouraging independence and curiosity</td>
+        <tr style="background-color: #ffe9d6; transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#fff2cc'" onmouseout="this.style.backgroundColor='#ffe9d6'">
+          <td style="padding: 12px; border: 2px solid #f7c59f;">1 – 2 years</td>
+          <td style="padding: 12px; border: 2px solid #f7c59f;">🚼 Toddlers</td>
+          <td style="padding: 12px; border: 2px solid #f7c59f;">Language building, motor skills</td>
         </tr>
-        <tr>
-          <td>2 – 3 years</td>
-          <td>Pre-Nursery Whizzers</td>
-          <td>Building communication and motor skills</td>
+        <tr style="background-color: #ffffff; transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#fff2cc'" onmouseout="this.style.backgroundColor='#ffffff'">
+          <td style="padding: 12px; border: 2px solid #f7c59f;">2 – 3 years</td>
+          <td style="padding: 12px; border: 2px solid #f7c59f;">🎨 Playgroup</td>
+          <td style="padding: 12px; border: 2px solid #f7c59f;">Social interaction, early literacy</td>
         </tr>
-        <tr>
-          <td>3 – 4 years</td>
-          <td>Foundation Stage 1</td>
-          <td>Introducing structured learning and routines</td>
+        <tr style="background-color: #ffe9d6; transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#fff2cc'" onmouseout="this.style.backgroundColor='#ffe9d6'">
+          <td style="padding: 12px; border: 2px solid #f7c59f;">3 – 4 years</td>
+          <td style="padding: 12px; border: 2px solid #f7c59f;">🖍️ Nursery</td>
+          <td style="padding: 12px; border: 2px solid #f7c59f;">Creativity, structured learning</td>
         </tr>
-        <tr>
-          <td>4 – 5 years</td>
-          <td>Foundation Stage 2</td>
-          <td>Preparing for primary school transitions</td>
+        <tr style="background-color: #ffffff; transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#fff2cc'" onmouseout="this.style.backgroundColor='#ffffff'">
+          <td style="padding: 12px; border: 2px solid #f7c59f;">4 – 5 years</td>
+          <td style="padding: 12px; border: 2px solid #f7c59f;">📖 KG1</td>
+          <td style="padding: 12px; border: 2px solid #f7c59f;">Early academics, problem solving</td>
+        </tr>
+        <tr style="background-color: #ffe9d6; transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#fff2cc'" onmouseout="this.style.backgroundColor='#ffe9d6'">
+          <td style="padding: 12px; border: 2px solid #f7c59f;">5 – 6 years</td>
+          <td style="padding: 12px; border: 2px solid #f7c59f;">✏️ KG2</td>
+          <td style="padding: 12px; border: 2px solid #f7c59f;">School readiness, independent learning</td>
         </tr>
       </tbody>
     </table>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Wonder Whiz Kids Nursery | Designed with ❤ in Dubai</p>
-  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<footer>
+  <p>&copy; 2025 Wonder Whiz Kids Nursery | Designed with ❤ in Dubai</p>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/971501234567" class="whatsapp-float" target="_blank">
+  <img src="images/whatsapp-icon.png" alt="WhatsApp" style="width: 35px; height: 35px;">
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({
-    duration: 500,      // Animation speed
-    delay: 0,           // No delay
-    offset: 0,        // Trigger animation 150px before element enters viewport
-    once: true          // Animate only once
+    duration: 500,
+    delay: 0,
+    offset: 0,
+    once: true
   });
 
   window.addEventListener("load", () => {
     document.getElementById("preloader").style.display = "none";
   });
+
+  // Mobile menu toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    menuToggle.textContent = menu.classList.contains('active') ? '✖' : '☰';
+  });
 </script>
-<script>
-  const container = document.querySelector('.falling-stars-container');
-
-  for (let i = 0; i < 25; i++) {
-    const star = document.createElement('div');
-    star.classList.add('star');
-    star.style.left = Math.random() * 100 + 'vw';
-    star.style.animationDuration = 2 + Math.random() * 3 + 's';
-    star.style.animationDelay = Math.random() * 5 + 's';
-    container.appendChild(star);
-  }
-</script>
-
-
-
 
 </body>
 </html>
