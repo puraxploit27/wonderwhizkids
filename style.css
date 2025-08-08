@@ -688,5 +688,70 @@ nav {
     pointer-events: none;
   }
 </style>
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* ✅ 2 in a row */
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+nav {
+  background: rgba(255,255,255,0.85);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+}
 
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+}
 
+@media (max-width: 768px) {
+  nav {
+    justify-content: space-between;
+  }
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 999;
+  }
+}
+/* Remove white strip background */
+nav {
+  background: transparent;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Mobile toggle styling */
+.menu-toggle {
+  display: none;
+  background: #4b6b3c; /* dark green */
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: #3b562e;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 999;
+  }
+}
