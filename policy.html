@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Policies & Documents — Wonder Whiz Kids Nursery</title>
+<meta name="description" content="Access all official policies, parent contracts, and curriculum documents for Wonder Whiz Kids Nursery." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   0. TOKENS
+   ============================================================ */
+:root{
+  --paper:#FFFCF3;
+  --paper-2:#FFF6E2;
+  --ink:#23302B;
+  --ink-soft:#4C5D56;
+  --red:#E8654F;
+  --orange:#F49A5B;
+  --yellow:#F8CE5A;
+  --green:#7FBE8C;
+  --teal:#5FB3B0;
+  --blue:#5FA8D3;
+  --purple:#A98BC4;
+  --pink:#F2A2B4;
+  --shadow:rgba(35,48,43,.85);
+  --ease:cubic-bezier(.22,.9,.24,1);
+  --bounce:cubic-bezier(.34,1.56,.64,1);
+  --spring:cubic-bezier(.34,1.4,.3,1);
+}
+
+/* ============================================================
+   1. RESET & PAPER
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box}
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+  overflow-x:clip;
+}
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:'Patrick Hand', 'Comic Sans MS', cursive;
+  font-size:17px;
+  line-height:1.6;
+  background-color:var(--paper);
+  background-image:radial-gradient(rgba(35,48,43,.13) 1.1px, transparent 1.1px);
+  background-size:26px 26px;
+  overflow-x:hidden;
+  overflow-x:clip;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+h1,h2,h3,h4,p,ul{margin:0}
+ul{padding:0;list-style:none}
+::selection{background:var(--yellow);color:var(--ink)}
+
+body::after{
+  content:"";
+  position:fixed;inset:0;z-index:9990;pointer-events:none;
+  opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   2. PRELOADER
+   ============================================================ */
+.preloader{
+  position:fixed;inset:0;z-index:9999;
+  display:grid;place-items:center;gap:18px;
+  background:var(--paper);
+  transition:opacity .65s var(--ease), visibility .65s;
+}
+.preloader-inner{display:grid;place-items:center;gap:20px;text-align:center}
+.preloader-mark{
+  font-family:'Caveat',cursive;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;
+  transform:rotate(-2deg);
+}
+.preloader-dots{display:flex;gap:9px}
+.preloader-dots i{
+  width:12px;height:12px;border-radius:50%;
+  border:2.4px solid var(--ink);
+  animation:preBounce 1s var(--bounce) infinite;
+}
+.preloader-dots i:nth-child(1){background:var(--yellow)}
+.preloader-dots i:nth-child(2){background:var(--pink);animation-delay:.12s}
+.preloader-dots i:nth-child(3){background:var(--green);animation-delay:.24s}
+@keyframes preBounce{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-12px) scale(1.1)}
+}
+body.loaded .preloader{opacity:0;visibility:hidden}
+
+/* ============================================================
+   3. CUSTOM CURSOR
+   ============================================================ */
+@media (pointer:fine){
+  html, body, a, button, .btn, .sticker, .tag-kicker,
+  .pdf-card, .note{ cursor: none; }
+  input, textarea, select, [contenteditable]{ cursor:auto; }
+}
+.cursor-dot,.cursor-ring{
+  position:fixed;top:0;left:0;pointer-events:none;border-radius:50%;
+  z-index:10000;opacity:0;will-change:transform;display:none;
+}
+@media (pointer:fine){ .cursor-dot,.cursor-ring{display:grid} }
+.cursor-dot{
+  width:6px;height:6px;background:var(--ink);
+  transition:opacity .2s,background .25s;
+}
+.cursor-dot.hovering{background:var(--red)}
+.cursor-ring{
+  width:42px;height:42px;border:2px solid var(--ink);place-items:center;
+  transition:width .35s var(--bounce),height .35s var(--bounce),background .3s,border-color .3s,opacity .3s;
+}
+.cursor-ring.hovering{width:68px;height:68px;background:rgba(248,206,90,.28);border-color:var(--red)}
+.cursor-ring.link-hover{width:76px;height:76px;background:var(--yellow);border-color:var(--ink)}
+.cursor-ring.link-hover::after{
+  content:"→";font-family:'Caveat',cursive;font-size:26px;
+  color:var(--ink);line-height:1;margin-top:-4px;transform:translateX(1px);
+}
+.cursor-ring.press{width:34px;height:34px;background:var(--red);border-color:var(--red)}
+.cursor-ring.press::after{display:none}
+
+/* ============================================================
+   4. SCROLL PROGRESS
+   ============================================================ */
+.scroll-progress{
+  position:fixed;top:0;left:0;right:0;height:3px;z-index:500;
+  background:transparent;pointer-events:none;
+}
+.scroll-progress span{
+  display:block;height:100%;width:0%;
+  background:linear-gradient(90deg,var(--yellow),var(--red),var(--pink),var(--purple));
+  transition:width .08s linear;border-radius:0 3px 3px 0;
+}
+
+/* ============================================================
+   5. LAYOUT
+   ============================================================ */
+.wrap{width:min(1260px, calc(100% - clamp(32px,6vw,88px)));margin-inline:auto}
+.section{padding:clamp(60px,8vw,110px) 0;position:relative;scroll-margin-top:100px}
+
+/* ============================================================
+   6. REVEAL
+   ============================================================ */
+.reveal{
+  opacity:0;transform:translateY(44px) rotate(var(--rot,0deg));
+  transition:opacity 1s var(--ease), transform 1.05s var(--spring);
+  transition-delay:var(--d,0s);will-change:opacity,transform;
+}
+.reveal.in{opacity:1;transform:translateY(0) rotate(var(--rot,0deg))}
+.reveal-left{transform:translateX(-56px) rotate(var(--rot,0deg))}
+.reveal-left.in{transform:translateX(0) rotate(var(--rot,0deg))}
+.reveal-right{transform:translateX(56px) rotate(var(--rot,0deg))}
+.reveal-right.in{transform:translateX(0) rotate(var(--rot,0deg))}
+.reveal-pop{transform:translateY(30px) rotate(calc(var(--rot,0deg) * 2)) scale(.92)}
+.reveal-pop.in{transform:translateY(0) rotate(var(--rot,0deg)) scale(1)}
+
+/* ============================================================
+   7. BUTTONS & STICKERS
+   ============================================================ */
+.btn{
+  position:relative;display:inline-flex;align-items:center;gap:10px;
+  padding:13px 26px;font-family:'Patrick Hand',cursive;font-size:1.04rem;
+  letter-spacing:.02em;color:var(--ink);background:#fff;border-radius:999px;
+  transform:translate(var(--mx,0px),var(--my,0px)) rotate(var(--rot,0deg));
+  box-shadow:4px 4px 0 var(--shadow);
+  transition:transform .35s var(--bounce), box-shadow .35s var(--ease), background .3s;
+  white-space:nowrap;will-change:transform;
+}
+.btn::before{
+  content:"";position:absolute;inset:0;border:2.5px solid var(--ink);
+  border-radius:999px;filter:url(#sketch);pointer-events:none;
+}
+.btn:hover{
+  transform:translate(var(--mx,0px),calc(var(--my,0px) - 3px)) rotate(0deg);
+  box-shadow:7px 10px 0 var(--shadow);
+}
+.btn:active{
+  transform:translate(var(--mx,0px),calc(var(--my,0px) + 2px));
+  box-shadow:1px 1px 0 var(--shadow);
+}
+.btn--primary{background:var(--yellow)}
+.btn--sm{padding:10px 20px;font-size:.95rem;box-shadow:3px 3px 0 var(--shadow)}
+.sticker{
+  position:relative;display:inline-flex;align-items:center;gap:8px;
+  padding:7px 17px 7px 13px;background:#fff;border-radius:14px;
+  font-size:.96rem;line-height:1.2;
+  transform:translate(var(--mx,0px),var(--my,0px)) rotate(var(--rot,-1.6deg));
+  box-shadow:3px 3px 0 var(--shadow);
+  transition:transform .35s var(--bounce), box-shadow .4s var(--ease);
+  will-change:transform;
+}
+.sticker::before{
+  content:"";position:absolute;inset:0;border:2.2px solid var(--ink);
+  border-radius:14px;filter:url(#sketch);pointer-events:none;
+}
+.sticker svg{width:16px;height:16px;flex-shrink:0;stroke:var(--green);fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ============================================================
+   8. HEADER
+   ============================================================ */
+.header{
+  position:fixed;inset:0 0 auto 0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:16px clamp(18px,4vw,42px);
+  transition:padding .45s var(--spring), background .45s, box-shadow .45s, backdrop-filter .45s;
+}
+.header.scrolled{
+  padding:9px clamp(18px,4vw,42px);
+  background:rgba(255,252,243,.86);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  backdrop-filter:blur(14px) saturate(140%);
+  box-shadow:0 2px 0 rgba(35,48,43,.12);
+}
+.brand{display:flex;align-items:center;flex-shrink:0}
+.brand-logo{
+  height:62px;width:auto;max-width:230px;object-fit:contain;
+  transform:rotate(-3deg);
+  transition:transform .55s var(--bounce), height .45s var(--spring), max-width .45s var(--spring), filter .4s;
+  filter:drop-shadow(2px 3px 0 rgba(35,48,43,.18));
+  will-change:transform, height;
+}
+.header.scrolled .brand-logo{
+  height:48px;max-width:180px;transform:rotate(0deg);
+  filter:drop-shadow(1px 2px 0 rgba(35,48,43,.15));
+}
+.brand:hover .brand-logo{transform:rotate(2deg) scale(1.04)}
+
+.header-nav{
+  display:flex;align-items:center;gap:clamp(10px,1.4vw,20px);
+  font-size:clamp(.86rem,1vw,.98rem);letter-spacing:.01em;
+  overflow-x:auto;overflow-y:hidden;
+  scrollbar-width:none;-ms-overflow-style:none;
+  max-width:100%;padding:2px 4px;
+}
+.header-nav::-webkit-scrollbar{display:none}
+.header-nav a{
+  position:relative;padding:6px 2px;color:var(--ink-soft);
+  white-space:nowrap;transition:color .3s;
+}
+.header-nav a::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:var(--yellow);border-radius:3px;
+  transform:scaleX(0);transform-origin:left center;
+  transition:transform .45s var(--bounce);
+}
+.header-nav a:hover,
+.header-nav a.active{color:var(--ink)}
+.header-nav a:hover::after,
+.header-nav a.active::after{transform:scaleX(1)}
+
+.header-actions{display:flex;align-items:center;gap:10px}
+
+/* ============================================================
+   9. PAGE HERO
+   ============================================================ */
+.page-hero{
+  padding:clamp(140px,17vh,200px) 0 clamp(30px,5vw,50px);
+  text-align:center;position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:"";position:absolute;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(248,206,90,.28),transparent 68%);
+  top:-40%;left:50%;transform:translateX(-50%);
+  pointer-events:none;z-index:0;
+}
+.page-hero-inner{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+}
+.tag-kicker{
+  position:relative;display:inline-block;
+  padding:7px 22px;background:#fff;border-radius:999px;
+  font-size:.95rem;letter-spacing:.04em;
+  transform:translate(var(--mx,0), var(--my,0)) rotate(var(--rot,-2deg));
+  box-shadow:3px 3px 0 var(--shadow);
+  transition:transform .35s var(--bounce);
+}
+.tag-kicker::before{
+  content:"";position:absolute;inset:0;border:2.3px solid var(--ink);
+  border-radius:999px;filter:url(#sketch);
+}
+.page-hero h1{
+  font-family:'Caveat',cursive;font-weight:700;
+  font-size:clamp(3rem,7vw,5.6rem);line-height:.9;
+  letter-spacing:-.005em;max-width:18ch;
+}
+.page-hero h1 .hl{position:relative;display:inline-block;z-index:1}
+.page-hero h1 .hl::after{
+  content:"";position:absolute;left:-.05em;right:-.05em;
+  top:.24em;bottom:.1em;background:var(--hl-color,#C9EFD6);
+  border-radius:6px;z-index:-1;transform:rotate(-1deg);
+  filter:url(#sketch);
+}
+.page-hero p{
+  font-size:1.05rem;color:var(--ink-soft);max-width:52ch;line-height:1.7;
+}
+
+/* ============================================================
+   10. SECTION HEADERS
+   ============================================================ */
+.sec-head{
+  display:flex;flex-direction:column;align-items:flex-start;text-align:left;
+  gap:8px;margin-bottom:clamp(24px,3.5vw,36px);position:relative;
+  border-bottom:2px dashed rgba(35,48,43,.15);
+  padding-bottom:14px;
+}
+.sec-title{
+  font-family:'Caveat',cursive;font-weight:700;
+  font-size:clamp(2rem,4vw,3rem);line-height:.92;
+  position:relative;width:max-content;max-width:100%;
+}
+.sec-title .hl{position:relative;display:inline-block;z-index:1}
+.sec-title .hl::after{
+  content:"";position:absolute;left:-.05em;right:-.05em;
+  top:.24em;bottom:.1em;background:var(--mint,#C9EFD6);
+  border-radius:6px;z-index:-1;
+  transform:rotate(-1deg) scaleX(0);transform-origin:left center;
+  filter:url(#sketch);
+  transition:transform 1.2s var(--bounce) .3s;
+}
+.sec-title.in .hl::after{transform:rotate(-1deg) scaleX(1)}
+.sec-note{font-size:1rem;color:var(--ink-soft);max-width:44ch}
+
+/* ============================================================
+   11. PDF GRID & CARDS
+   ============================================================ */
+.policy-category{
+  margin-bottom:clamp(40px,6vw,60px);
+}
+
+.pdf-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap:clamp(16px,2.4vw,24px);
+  perspective:1200px;
+}
+
+.pdf-card{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:20px 22px;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:4px 5px 0 rgba(35,48,43,.11);
+  transform:rotate(var(--rot,0deg));
+  transition:transform .4s var(--bounce), box-shadow .4s var(--ease), border-color .3s;
+  border:2px solid transparent; /* Placeholder for hover */
+  text-decoration:none;
+  z-index:1;
+}
+.pdf-card::before{
+  content:"";position:absolute;inset:0;
+  border:2.4px solid var(--ink);border-radius:16px;
+  filter:url(#sketch);pointer-events:none;z-index:2;
+}
+
+/* Slight random rotations for scrapbook feel */
+.pdf-card:nth-child(3n+1){--rot:-.8deg}
+.pdf-card:nth-child(3n+2){--rot:.6deg}
+.pdf-card:nth-child(3n+3){--rot:-.4deg}
+
+.pdf-card:hover{
+  transform:rotate(0) translateY(-5px);
+  box-shadow:7px 9px 0 rgba(35,48,43,.15);
+  z-index:2;
+}
+
+.pdf-icon{
+  flex-shrink:0;
+  width:44px;
+  height:56px;
+  position:relative;
+}
+/* SVG Document icon */
+.pdf-icon svg{
+  width:100%;height:100%;
+  filter:drop-shadow(2px 3px 0 rgba(35,48,43,.15));
+}
+
+.pdf-info{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.pdf-title{
+  font-family:'Patrick Hand',cursive;
+  font-size:1rem;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.25;
+  transition:color .3s;
+}
+.pdf-card:hover .pdf-title{color:var(--red)}
+
+.pdf-action{
+  font-family:'Caveat',cursive;
+  font-size:1.1rem;
+  color:var(--ink-soft);
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.pdf-action svg{
+  width:12px;height:12px;
+  stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;
+  transition:transform .3s;
+}
+.pdf-card:hover .pdf-action svg{transform:translateX(3px)}
+
+/* ============================================================
+   12. CTA BAND
+   ============================================================ */
+.cta-band{
+  position:relative;
+  padding:clamp(50px,7vw,90px) 0 clamp(20px,4vw,40px);
+  text-align:center;
+}
+.cta-band .sec-title{margin-inline:auto;margin-bottom:20px}
+.cta-band .sec-note{margin:0 auto 30px}
+
+/* ============================================================
+   13. BACK TO TOP
+   ============================================================ */
+.to-top-fab{
+  position:fixed;
+  right:clamp(16px,3vw,32px);
+  bottom:clamp(16px,3vw,32px);
+  width:56px;height:56px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--yellow);color:var(--ink);
+  z-index:400;opacity:0;visibility:hidden;
+  transform:translateY(20px) scale(.8);
+  transition:opacity .4s var(--ease), transform .5s var(--bounce), visibility .4s, background .3s;
+  box-shadow:4px 4px 0 var(--shadow);
+}
+.to-top-fab.show{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.to-top-fab:hover{background:#fff;transform:translateY(-4px) scale(1.06)}
+.to-top-fab svg.arrow{width:20px;height:20px}
+.to-top-fab svg.prog-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.to-top-fab .prog-ring circle{
+  fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;
+  stroke-dasharray:138.2;
+  stroke-dashoffset:calc(138.2 - (138.2 * var(--p, 0)));
+  opacity:.85;
+  transition:stroke-dashoffset .1s linear;
+}
+
+/* ============================================================
+   14. FOOTER
+   ============================================================ */
+.footer{
+  position:relative;
+  margin-top:clamp(40px,6vw,80px);
+  background:var(--ink);color:var(--paper);
+  padding:clamp(50px,7vw,84px) 0 30px;
+  border-radius:52px 52px 0 0;overflow:hidden;
+}
+.footer::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,252,243,.14) 1.1px, transparent 1.1px);
+  background-size:26px 26px;opacity:.5;
+}
+.footer-doodles{position:absolute;inset:0;pointer-events:none;opacity:.35;width:100%;height:100%}
+.footer-inner{position:relative;z-index:2}
+.foot-top{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr;
+  gap:clamp(28px,5vw,60px);
+  padding-bottom:clamp(34px,5vw,56px);
+}
+.foot-brand .brand-logo{
+  height:76px;max-width:250px;padding:10px 14px;
+  background:var(--paper);border-radius:14px;
+  transform:rotate(-2.5deg);
+  box-shadow:3px 4px 0 rgba(0,0,0,.35);
+  filter:none;
+}
+.foot-brand .brand:hover .brand-logo{transform:rotate(1deg) scale(1.05)}
+.foot-brand p{
+  margin-top:20px;max-width:32ch;
+  font-size:.98rem;color:rgba(255,252,243,.66);line-height:1.65;
+}
+.foot-col h5{
+  font-family:'Caveat',cursive;font-size:1.4rem;
+  font-weight:700;color:var(--yellow);margin-bottom:14px;
+}
+.foot-col ul{display:flex;flex-direction:column;gap:10px}
+.foot-col a{
+  font-size:1rem;color:rgba(255,252,243,.8);
+  display:inline-block;
+  transition:color .3s, transform .4s var(--spring);
+}
+.foot-col a:hover{color:var(--yellow);transform:translateX(6px) rotate(-1deg)}
+
+.foot-badges{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.foot-badges .sticker{
+  background:transparent;color:var(--paper);box-shadow:none;
+  transform:rotate(var(--rot,-1.5deg));
+  font-size:.86rem;padding:6px 14px 6px 10px;border-radius:12px;
+}
+.foot-badges .sticker::before{border-color:rgba(255,252,243,.5);border-width:1.8px}
+.foot-badges .sticker svg{stroke:var(--yellow)}
+
+.foot-big{
+  font-family:'Caveat',cursive;font-weight:700;
+  font-size:clamp(3.4rem,13vw,10rem);line-height:.78;
+  letter-spacing:-.01em;color:rgba(255,252,243,.10);
+  border-top:2px dashed rgba(255,252,243,.18);
+  padding-top:clamp(24px,3.5vw,42px);
+  white-space:nowrap;overflow:hidden;user-select:none;
+}
+.foot-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:18px;flex-wrap:wrap;padding-top:24px;
+  font-size:.88rem;color:rgba(255,252,243,.5);
+}
+.to-top{
+  display:inline-flex;align-items:center;gap:7px;
+  color:rgba(255,252,243,.8);font-weight:400;
+  transition:color .3s,gap .4s var(--spring);
+}
+.to-top:hover{color:var(--yellow);gap:12px}
+
+/* ============================================================
+   15. RESPONSIVE
+   ============================================================ */
+@media (max-width:1280px){
+  .header-nav{gap:clamp(8px,1vw,14px);font-size:.9rem}
+}
+@media (max-width:1080px){
+  .header-nav{display:none}
+  .pdf-grid{grid-template-columns:repeat(auto-fill, minmax(250px, 1fr))}
+}
+@media (max-width:820px){
+  .foot-top{grid-template-columns:1fr 1fr}
+  .foot-brand{grid-column:span 2}
+}
+@media (max-width:660px){
+  body{font-size:16px}
+  .header-actions .btn--ghost{display:none}
+  .brand-logo{height:48px;max-width:170px}
+  .header.scrolled .brand-logo{height:40px;max-width:140px}
+  .foot-brand .brand-logo{height:64px;max-width:210px}
+  .pdf-grid{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr}
+  .foot-brand{grid-column:span 1}
+  .to-top-fab{width:48px;height:48px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+  .reveal{opacity:1;transform:none}
+  .cursor-dot,.cursor-ring{display:none !important}
+  .sec-title .hl::after{transform:rotate(-1deg) scaleX(1)}
+}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader" aria-hidden="true">
+  <div class="preloader-inner">
+    <div class="preloader-mark">Wonder Whiz</div>
+    <div class="preloader-dots"><i></i><i></i><i></i></div>
+  </div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- SVG FILTERS -->
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <filter id="sketch" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.032" numOctaves="3" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <a class="brand" href="index.html" aria-label="Wonder Whiz Kids Nursery — home">
+    <img class="brand-logo" src="main-logo.png" alt="Wonder Whiz Kids Nursery" />
+  </a>
+
+  <nav class="header-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="curriculum.html">Curriculum</a>
+    <a href="programs.html">Programs</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="educators.html">Educators</a>
+    <a href="policy.html" class="active">Policy</a>
+    <a href="timings.html">Timings</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="header-actions">
+    <a class="btn btn--ghost btn--sm" href="gallery.html">Photos</a>
+    <a class="btn btn--primary btn--sm" href="contact.html">Book a Tour</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="wrap page-hero-inner">
+      <span class="tag-kicker">Documents & Policies</span>
+      <h1>Transparency &amp; <span class="hl" style="--hl-color:#DED4F3">Trust</span></h1>
+      <p>Access all our official policies, procedures, and parent documents below. Click any document to open it in a new tab.</p>
+    </div>
+  </section>
+
+  <!-- POLICIES LIST -->
+  <section class="section" style="padding-top:clamp(30px,4vw,60px)">
+    <div class="wrap">
+
+      <!-- CATEGORY: Admissions & Contracts -->
+      <div class="policy-category">
+        <div class="sec-head reveal-left">
+          <h2 class="sec-title">Admissions &amp; <span class="hl" style="--mint:#FFE0CC">Contracts</span></h2>
+        </div>
+
+        <div class="pdf-grid">
+          <a href="Admission%20policy%20fin%20sub%20(1).pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Admission Policy</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+
+          <a href="PARENT%20PARTNERSHIP%20POLICY%20fin%20sub%20A%20(1).pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop" style="--d:.04s">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Parent Partnership Policy</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+
+          <a href="Parent_Contract_Template_English.pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop" style="--d:.08s">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Parent Contract (English)</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+
+          <a href="Parent_Contract_Template_Arabic.pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop" style="--d:.12s">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Parent Contract (Arabic)</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+          
+          <a href="Arrival%20and%20departure%20policy%20fin%20sub%20(1).pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop" style="--d:.16s">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Arrival &amp; Departure Policy</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- CATEGORY: Health, Safety & Wellbeing -->
+      <div class="policy-category">
+        <div class="sec-head reveal-left">
+          <h2 class="sec-title">Health, Safety &amp; <span class="hl" style="--mint:#C9EFD6">Wellbeing</span></h2>
+        </div>
+
+        <div class="pdf-grid">
+          <a href="Safeguarding%20Policy.pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Safeguarding Policy</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+
+          <a href="Health%20and%20Safety%20Policy%20WWN.pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop" style="--d:.04s">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Health &amp; Safety Policy</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+
+          <a href="Diaper%20changing%20and%20toilet%20training%20policy%20fin%20sub%20(1).pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop" style="--d:.08s">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Diaper &amp; Toilet Training</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+
+          <a href="Wellbeing%20Policy%20WWN.pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop" style="--d:.12s">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Wellbeing Policy</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- CATEGORY: Curriculum & Learning -->
+      <div class="policy-category">
+        <div class="sec-head reveal-left">
+          <h2 class="sec-title">Curriculum &amp; <span class="hl" style="--mint:#FFE9DA">Learning</span></h2>
+        </div>
+
+        <div class="pdf-grid">
+          <a href="Curriculum%20and%20Learning%20policy.pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Curriculum &amp; Learning Policy</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+
+          <a href="Teaching%20and%20Learning%20Policy.pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop" style="--d:.04s">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Teaching &amp; Learning Policy</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+
+          <a href="Assessment%20and%20Progress%20Tracking%20Policy.pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop" style="--d:.08s">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Assessment &amp; Progress Tracking</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+
+          <a href="Schedule%20of%20activities_final%20sub%20(1)%20(1).pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop" style="--d:.12s">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Schedule of Activities</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+
+          <a href="Arabic%20Language%20Policy.pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop" style="--d:.16s">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Arabic Language Policy</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- CATEGORY: Behaviour, Inclusion & Governance -->
+      <div class="policy-category">
+        <div class="sec-head reveal-left">
+          <h2 class="sec-title">Behaviour, Inclusion &amp; <span class="hl" style="--mint:#E3F2FA">Governance</span></h2>
+        </div>
+
+        <div class="pdf-grid">
+          <a href="Behaviour%20Policy%20final%20sub%20(1).pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Behaviour Policy</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+
+          <a href="Inclusive%20Education%20policy%20final%20sub%20(1).pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop" style="--d:.04s">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Inclusive Education Policy</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+
+          <a href="Governance%20policy%20fin%20sub%20(1).pdf" target="_blank" rel="noopener" class="pdf-card reveal-pop" style="--d:.08s">
+            <div class="pdf-icon">
+              <svg viewBox="0 0 44 56"><rect x="1" y="1" width="42" height="54" rx="4" fill="#FFF" stroke="#23302B" stroke-width="2.4"/><path d="M11 30h22M11 36h22M11 42h14" stroke="#E8654F" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="16" r="7" fill="#E8654F"/><text x="22" y="20" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">PDF</text></svg>
+            </div>
+            <div class="pdf-info">
+              <span class="pdf-title">Governance Policy</span>
+              <span class="pdf-action">Open PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="wrap">
+      <h2 class="sec-title reveal" style="margin-bottom:20px">
+        Need a document <span class="hl" style="--mint:#C9EFD6">emailed</span>?
+      </h2>
+      <p class="sec-note reveal" style="margin:0 auto 30px;--d:.08s">
+        If you can't find what you're looking for, just get in touch and we'll send it straight over.
+      </p>
+      <a class="btn btn--primary reveal" href="contact.html" style="--d:.16s">Contact the team →</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <svg class="footer-doodles" viewBox="0 0 1400 500" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="none" stroke="#FFFCF3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M120 90c30-40 70-40 100 0s70 40 100 0"/>
+      <path d="M1180 150c-24-30-56-30-80 0s-56 30-80 0"/>
+      <circle cx="1290" cy="70" r="26"/>
+      <circle cx="120" cy="400" r="18"/>
+    </g>
+  </svg>
+
+  <div class="wrap footer-inner">
+    <div class="foot-top">
+
+      <div class="foot-brand reveal">
+        <a class="brand" href="index.html" aria-label="Wonder Whiz Kids Nursery — home">
+          <img class="brand-logo" src="main-logo.png" alt="Wonder Whiz Kids Nursery logo" />
+        </a>
+        <p>Where little minds meet big wonder, every single day.</p>
+
+        <div class="foot-badges">
+          <span class="sticker" style="--rot:-1.5deg">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            KHDA Approved
+          </span>
+          <span class="sticker" style="--rot:1.5deg">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            EYFS British Curriculum
+          </span>
+          <span class="sticker" style="--rot:-.8deg">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            Ages 45 Days to 5 Years
+          </span>
+        </div>
+      </div>
+
+      <div class="foot-col reveal" style="--d:.08s">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="curriculum.html">Curriculum</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="educators.html">Our Educators</a></li>
+          <li><a href="timings.html">Timings</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col reveal" style="--d:.16s">
+        <h5>Get in Touch</h5>
+        <ul>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="policy.html">Policies</a></li>
+          <li><a href="contact.html">Book a Tour</a></li>
+          <li><a href="tel:+971553681122">+971 55 368 1122</a></li>
+          <li><a href="mailto:info@wonderwhizkids.in">info@wonderwhizkids.in</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-big" aria-hidden="true">wonder whiz</div>
+
+    <div class="foot-bottom">
+      <span>© 2025 Wonder Whiz Kids Nursery · All rights reserved</span>
+      <a class="to-top" href="#top">
+        Back to top
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 19V5"/><path d="M5 12l7-7 7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="to-top-fab" id="toTopFab" aria-label="Back to top">
+  <svg class="prog-ring" viewBox="0 0 48 48" aria-hidden="true">
+    <circle cx="24" cy="24" r="22"></circle>
+  </svg>
+  <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5"/><path d="M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<script>
+(function () {
+  'use strict';
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canHover = window.matchMedia('(pointer:fine)').matches;
+
+  /* PRELOADER */
+  const finishLoad = () => document.body.classList.add('loaded');
+  window.addEventListener('load', finishLoad);
+  setTimeout(finishLoad, 1600);
+
+  /* CUSTOM CURSOR */
+  if (canHover && !reduceMotion) {
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    if (dot && ring) {
+      let mx = -100, my = -100, rx = -100, ry = -100, visible = false;
+      const setVisible = v => { visible = v; dot.style.opacity = v ? 1 : 0; ring.style.opacity = v ? 1 : 0; };
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX; my = e.clientY;
+        if (!visible) { rx = mx; ry = my; setVisible(true); }
+        dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+      });
+      document.addEventListener('mouseleave', () => setVisible(false));
+      document.addEventListener('mouseenter', () => { if (mx > 0) setVisible(true); });
+      document.addEventListener('mousedown', () => ring.classList.add('press'));
+      document.addEventListener('mouseup', () => ring.classList.remove('press'));
+      const raf = () => {
+        rx += (mx - rx) * 0.15; ry += (my - ry) * 0.15;
+        ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
+        requestAnimationFrame(raf);
+      };
+      raf();
+
+      const hoverSelectors = '.sticker, .tag-kicker, .pdf-card';
+      const linkSelectors = 'a, button, .btn';
+
+      document.querySelectorAll(hoverSelectors).forEach(el => {
+        el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
+      });
+      document.querySelectorAll(linkSelectors).forEach(el => {
+        el.addEventListener('mouseenter', () => { ring.classList.add('hovering','link-hover'); dot.classList.add('hovering'); });
+        el.addEventListener('mouseleave', () => { ring.classList.remove('link-hover'); dot.classList.remove('hovering'); });
+      });
+    }
+  }
+
+  /* SCROLL / HEADER / FAB */
+  const header = document.getElementById('header');
+  const progressBar = document.querySelector('.scroll-progress span');
+  const fab = document.getElementById('toTopFab');
+  let lastY = -1, ticking = false;
+
+  function updateScrollUI() {
+    const y = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? Math.min(1, y / max) : 0;
+    if (y !== lastY) {
+      lastY = y;
+      header.classList.toggle('scrolled', y > 20);
+      if (fab) fab.classList.toggle('show', y > 620);
+    }
+    if (progressBar) progressBar.style.width = (pct * 100) + '%';
+    if (fab) fab.style.setProperty('--p', pct.toFixed(4));
+    ticking = false;
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(updateScrollUI); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updateScrollUI();
+
+  if (fab) fab.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
+
+  /* REVEAL */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-pop');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
+  /* MAGNETIC BUTTONS */
+  if (canHover && !reduceMotion) {
+    const magnets = document.querySelectorAll('.btn, .sticker, .tag-kicker');
+    const strength = 0.28;
+    magnets.forEach(el => {
+      el.addEventListener('mousemove', e => {
+        const r = el.getBoundingClientRect();
+        const x = e.clientX - r.left - r.width / 2;
+        const y = e.clientY - r.top - r.height / 2;
+        el.style.setProperty('--mx', (x * strength).toFixed(1) + 'px');
+        el.style.setProperty('--my', (y * strength).toFixed(1) + 'px');
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.setProperty('--mx', '0px');
+        el.style.setProperty('--my', '0px');
+      });
+    });
+  }
+
+  /* SMOOTH ANCHOR */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const id = link.getAttribute('href');
+      if (!id || id === '#' || id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
