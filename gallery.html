@@ -651,12 +651,11 @@ body.loaded .preloader{opacity:0;visibility:hidden}
   position:absolute;inset:0;
   width:100%;height:100%;
   object-fit:cover;
-  opacity:0;
+  opacity:1; /* Changed from 0 to 1 */
   pointer-events:none;
   z-index:1;
-  transition:opacity .4s ease;
 }
-.gallery-item.playing .hover-preview{opacity:1}
+/* Removed .playing .hover-preview opacity logic */
 
 /* favorite heart button */
 .fav-btn{
@@ -1495,7 +1494,7 @@ body.loaded .preloader{opacity:0;visibility:hidden}
             <svg class="fallback" aria-hidden="true"><use href="#picIcon"/></svg>
             <img src="n1-poster.jpg" alt="Video poster"
                  loading="lazy" onload="imgLoaded(this)" onerror="imgFailed(this)">
-            <video class="hover-preview" muted loop playsinline preload="none" src="n1.mp4"></video>
+            <video class="hover-preview" autoplay muted loop playsinline src="n1.mp4"></video>
             <div class="video-overlay">
               <div class="play-btn">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
@@ -1632,7 +1631,7 @@ body.loaded .preloader{opacity:0;visibility:hidden}
             <svg class="fallback" aria-hidden="true"><use href="#kidFace"/></svg>
             <img src="kv1-poster.jpg" alt="Video poster"
                  loading="lazy" onload="imgLoaded(this)" onerror="imgFailed(this)">
-            <video class="hover-preview" muted loop playsinline preload="none" src="kv1.mp4"></video>
+            <video class="hover-preview" autoplay muted loop playsinline src="kv1.mp4"></video>
             <div class="video-overlay">
               <div class="play-btn">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
@@ -1657,7 +1656,7 @@ body.loaded .preloader{opacity:0;visibility:hidden}
             <svg class="fallback" aria-hidden="true"><use href="#kidFace"/></svg>
             <img src="kv2-poster.jpg" alt="Video poster"
                  loading="lazy" onload="imgLoaded(this)" onerror="imgFailed(this)">
-            <video class="hover-preview" muted loop playsinline preload="none" src="kv2.mp4"></video>
+            <video class="hover-preview" autoplay muted loop playsinline src="kv2.mp4"></video>
             <div class="video-overlay">
               <div class="play-btn">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
@@ -1682,7 +1681,7 @@ body.loaded .preloader{opacity:0;visibility:hidden}
             <svg class="fallback" aria-hidden="true"><use href="#kidFace"/></svg>
             <img src="kv3-poster.jpg" alt="Video poster"
                  loading="lazy" onload="imgLoaded(this)" onerror="imgFailed(this)">
-            <video class="hover-preview" muted loop playsinline preload="none" src="kv3.mp4"></video>
+            <video class="hover-preview" autoplay muted loop playsinline src="kv3.mp4"></video>
             <div class="video-overlay">
               <div class="play-btn">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
@@ -1707,7 +1706,7 @@ body.loaded .preloader{opacity:0;visibility:hidden}
             <svg class="fallback" aria-hidden="true"><use href="#kidFace"/></svg>
             <img src="kv4-poster.jpg" alt="Video poster"
                  loading="lazy" onload="imgLoaded(this)" onerror="imgFailed(this)">
-            <video class="hover-preview" muted loop playsinline preload="none" src="kv4.mp4"></video>
+            <video class="hover-preview" autoplay muted loop playsinline src="kv4.mp4"></video>
             <div class="video-overlay">
               <div class="play-btn">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
@@ -1732,7 +1731,7 @@ body.loaded .preloader{opacity:0;visibility:hidden}
             <svg class="fallback" aria-hidden="true"><use href="#kidFace"/></svg>
             <img src="kv5-poster.jpg" alt="Video poster"
                  loading="lazy" onload="imgLoaded(this)" onerror="imgFailed(this)">
-            <video class="hover-preview" muted loop playsinline preload="none" src="kv5.mp4"></video>
+            <video class="hover-preview" autoplay muted loop playsinline src="kv5.mp4"></video>
             <div class="video-overlay">
               <div class="play-btn">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
@@ -2201,26 +2200,6 @@ body.loaded .preloader{opacity:0;visibility:hidden}
       favFilterBtn.classList.toggle('active', favOnly);
       favFilterBtn.setAttribute('aria-pressed', String(favOnly));
       applyFilters();
-    });
-  }
-
-  /* ============================================================
-     HOVER VIDEO PREVIEW (silent autoplay on hover)
-     ============================================================ */
-  if (canHover && !reduceMotion) {
-    document.querySelectorAll('.gallery-item.video-item').forEach(item => {
-      const preview = item.querySelector('.hover-preview');
-      if (!preview) return;
-      item.addEventListener('mouseenter', () => {
-        item.classList.add('playing');
-        preview.currentTime = 0;
-        const p = preview.play();
-        if (p && p.catch) p.catch(() => {});
-      });
-      item.addEventListener('mouseleave', () => {
-        item.classList.remove('playing');
-        preview.pause();
-      });
     });
   }
 
