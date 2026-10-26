@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Admissions — Wonder Whiz Kids Nursery</title>
+<meta name="description" content="Admission process, required documents and tour booking at Wonder Whiz Kids Nursery, Dubai." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   0. TOKENS
+   ============================================================ */
+:root{
+  --paper:#FFFCF3;
+  --paper-2:#FFF6E2;
+  --ink:#23302B;
+  --ink-soft:#4C5D56;
+  --red:#E8654F;
+  --orange:#F49A5B;
+  --yellow:#F8CE5A;
+  --green:#7FBE8C;
+  --teal:#5FB3B0;
+  --blue:#5FA8D3;
+  --purple:#A98BC4;
+  --pink:#F2A2B4;
+  --shadow:rgba(35,48,43,.85);
+  --ease:cubic-bezier(.22,.9,.24,1);
+  --bounce:cubic-bezier(.34,1.56,.64,1);
+  --spring:cubic-bezier(.34,1.4,.3,1);
+}
+
+/* ============================================================
+   1. RESET & PAPER
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box}
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+  overflow-x:clip;
+}
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:'Patrick Hand', 'Comic Sans MS', cursive;
+  font-size:17px;
+  line-height:1.6;
+  background-color:var(--paper);
+  background-image:radial-gradient(rgba(35,48,43,.13) 1.1px, transparent 1.1px);
+  background-size:26px 26px;
+  overflow-x:hidden;
+  overflow-x:clip;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+h1,h2,h3,h4,p,ul{margin:0}
+ul{padding:0;list-style:none}
+::selection{background:var(--yellow);color:var(--ink)}
+
+body::after{
+  content:"";
+  position:fixed;inset:0;z-index:9990;pointer-events:none;
+  opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   2. PRELOADER
+   ============================================================ */
+.preloader{
+  position:fixed;inset:0;z-index:9999;
+  display:grid;place-items:center;gap:18px;
+  background:var(--paper);
+  transition:opacity .65s var(--ease), visibility .65s;
+}
+.preloader-inner{display:grid;place-items:center;gap:20px;text-align:center}
+.preloader-mark{
+  font-family:'Caveat',cursive;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;
+  transform:rotate(-2deg);
+}
+.preloader-dots{display:flex;gap:9px}
+.preloader-dots i{
+  width:12px;height:12px;border-radius:50%;
+  border:2.4px solid var(--ink);
+  animation:preBounce 1s var(--bounce) infinite;
+}
+.preloader-dots i:nth-child(1){background:var(--yellow)}
+.preloader-dots i:nth-child(2){background:var(--pink);animation-delay:.12s}
+.preloader-dots i:nth-child(3){background:var(--green);animation-delay:.24s}
+@keyframes preBounce{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-12px) scale(1.1)}
+}
+body.loaded .preloader{opacity:0;visibility:hidden}
+
+/* ============================================================
+   3. CUSTOM CURSOR
+   ============================================================ */
+@media (pointer:fine){
+  html, body, a, button, .btn, .sticker, .tag-kicker,
+  .step-card, .doc-card, .cta-card, .note{ cursor: none; }
+  input, textarea, select, [contenteditable]{ cursor:auto; }
+}
+.cursor-dot,.cursor-ring{
+  position:fixed;top:0;left:0;pointer-events:none;border-radius:50%;
+  z-index:10000;opacity:0;will-change:transform;display:none;
+}
+@media (pointer:fine){ .cursor-dot,.cursor-ring{display:grid} }
+.cursor-dot{
+  width:6px;height:6px;background:var(--ink);
+  transition:opacity .2s,background .25s;
+}
+.cursor-dot.hovering{background:var(--red)}
+.cursor-ring{
+  width:42px;height:42px;border:2px solid var(--ink);place-items:center;
+  transition:width .35s var(--bounce),height .35s var(--bounce),background .3s,border-color .3s,opacity .3s;
+}
+.cursor-ring.hovering{width:68px;height:68px;background:rgba(248,206,90,.28);border-color:var(--red)}
+.cursor-ring.link-hover{width:76px;height:76px;background:var(--yellow);border-color:var(--ink)}
+.cursor-ring.link-hover::after{
+  content:"→";font-family:'Caveat',cursive;font-size:26px;
+  color:var(--ink);line-height:1;margin-top:-4px;transform:translateX(1px);
+}
+.cursor-ring.press{width:34px;height:34px;background:var(--red);border-color:var(--red)}
+.cursor-ring.press::after{display:none}
+
+/* ============================================================
+   4. SCROLL PROGRESS
+   ============================================================ */
+.scroll-progress{
+  position:fixed;top:0;left:0;right:0;height:3px;z-index:500;
+  background:transparent;pointer-events:none;
+}
+.scroll-progress span{
+  display:block;height:100%;width:0%;
+  background:linear-gradient(90deg,var(--yellow),var(--red),var(--pink),var(--purple));
+  transition:width .08s linear;border-radius:0 3px 3px 0;
+}
+
+/* ============================================================
+   5. LAYOUT
+   ============================================================ */
+.wrap{width:min(1260px, calc(100% - clamp(32px,6vw,88px)));margin-inline:auto}
+.section{padding:clamp(60px,8vw,110px) 0;position:relative;scroll-margin-top:100px}
+
+/* ============================================================
+   6. REVEAL
+   ============================================================ */
+.reveal{
+  opacity:0;transform:translateY(44px) rotate(var(--rot,0deg));
+  transition:opacity 1s var(--ease), transform 1.05s var(--spring);
+  transition-delay:var(--d,0s);will-change:opacity,transform;
+}
+.reveal.in{opacity:1;transform:translateY(0) rotate(var(--rot,0deg))}
+.reveal-left{transform:translateX(-56px) rotate(var(--rot,0deg))}
+.reveal-left.in{transform:translateX(0) rotate(var(--rot,0deg))}
+.reveal-right{transform:translateX(56px) rotate(var(--rot,0deg))}
+.reveal-right.in{transform:translateX(0) rotate(var(--rot,0deg))}
+.reveal-pop{transform:translateY(30px) rotate(calc(var(--rot,0deg) * 2)) scale(.92)}
+.reveal-pop.in{transform:translateY(0) rotate(var(--rot,0deg)) scale(1)}
+
+/* ============================================================
+   7. BUTTONS & STICKERS
+   ============================================================ */
+.btn{
+  position:relative;display:inline-flex;align-items:center;gap:10px;
+  padding:13px 26px;font-family:'Patrick Hand',cursive;font-size:1.04rem;
+  letter-spacing:.02em;color:var(--ink);background:#fff;border-radius:999px;
+  transform:translate(var(--mx,0px),var(--my,0px)) rotate(var(--rot,0deg));
+  box-shadow:4px 4px 0 var(--shadow);
+  transition:transform .35s var(--bounce), box-shadow .35s var(--ease), background .3s;
+  white-space:nowrap;will-change:transform;
+}
+.btn::before{
+  content:"";position:absolute;inset:0;border:2.5px solid var(--ink);
+  border-radius:999px;filter:url(#sketch);pointer-events:none;
+}
+.btn::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);
+  background-size:250% 100%;background-position:200% 0;
+  transition:background-position .8s ease;pointer-events:none;mix-blend-mode:overlay;
+}
+.btn:hover{
+  transform:translate(var(--mx,0px),calc(var(--my,0px) - 3px)) rotate(0deg);
+  box-shadow:7px 10px 0 var(--shadow);
+  transition:transform .18s var(--ease), box-shadow .35s var(--ease), background .3s;
+}
+.btn:hover::after{background-position:-100% 0}
+.btn:active{
+  transform:translate(var(--mx,0px),calc(var(--my,0px) + 2px));
+  box-shadow:1px 1px 0 var(--shadow);
+}
+.btn--primary{background:var(--yellow)}
+.btn--mint{background:#D9F2E0}
+.btn--sm{padding:10px 20px;font-size:.95rem;box-shadow:3px 3px 0 var(--shadow)}
+.btn--lg{padding:16px 32px;font-size:1.1rem}
+.sticker{
+  position:relative;display:inline-flex;align-items:center;gap:8px;
+  padding:7px 17px 7px 13px;background:#fff;border-radius:14px;
+  font-size:.96rem;line-height:1.2;
+  transform:translate(var(--mx,0px),var(--my,0px)) rotate(var(--rot,-1.6deg));
+  box-shadow:3px 3px 0 var(--shadow);
+  transition:transform .35s var(--bounce), box-shadow .4s var(--ease);
+  will-change:transform;
+}
+.sticker::before{
+  content:"";position:absolute;inset:0;border:2.2px solid var(--ink);
+  border-radius:14px;filter:url(#sketch);pointer-events:none;
+}
+.sticker svg{width:16px;height:16px;flex-shrink:0;stroke:var(--green);fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ============================================================
+   8. HEADER
+   ============================================================ */
+.header{
+  position:fixed;inset:0 0 auto 0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:16px clamp(18px,4vw,42px);
+  transition:padding .45s var(--spring), background .45s, box-shadow .45s, backdrop-filter .45s;
+}
+.header.scrolled{
+  padding:9px clamp(18px,4vw,42px);
+  background:rgba(255,252,243,.86);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  backdrop-filter:blur(14px) saturate(140%);
+  box-shadow:0 2px 0 rgba(35,48,43,.12);
+}
+.brand{display:flex;align-items:center;flex-shrink:0}
+.brand-logo{
+  height:62px;width:auto;max-width:230px;object-fit:contain;
+  transform:rotate(-3deg);
+  transition:transform .55s var(--bounce), height .45s var(--spring), max-width .45s var(--spring), filter .4s;
+  filter:drop-shadow(2px 3px 0 rgba(35,48,43,.18));
+  will-change:transform, height;
+}
+.header.scrolled .brand-logo{
+  height:48px;max-width:180px;transform:rotate(0deg);
+  filter:drop-shadow(1px 2px 0 rgba(35,48,43,.15));
+}
+.brand:hover .brand-logo{transform:rotate(2deg) scale(1.04)}
+
+.header-nav{
+  display:flex;align-items:center;gap:clamp(10px,1.4vw,20px);
+  font-size:clamp(.86rem,1vw,.98rem);letter-spacing:.01em;
+  overflow-x:auto;overflow-y:hidden;
+  scrollbar-width:none;-ms-overflow-style:none;
+  max-width:100%;padding:2px 4px;
+}
+.header-nav::-webkit-scrollbar{display:none}
+.header-nav a{
+  position:relative;padding:6px 2px;color:var(--ink-soft);
+  white-space:nowrap;transition:color .3s;
+}
+.header-nav a::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:var(--yellow);border-radius:3px;
+  transform:scaleX(0);transform-origin:left center;
+  transition:transform .45s var(--bounce);
+}
+.header-nav a:hover,
+.header-nav a.active{color:var(--ink)}
+.header-nav a:hover::after,
+.header-nav a.active::after{transform:scaleX(1)}
+
+.header-actions{display:flex;align-items:center;gap:10px}
+
+/* ============================================================
+   9. PAGE HERO
+   ============================================================ */
+.page-hero{
+  padding:clamp(140px,17vh,200px) 0 clamp(30px,5vw,50px);
+  text-align:center;position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:"";position:absolute;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(248,206,90,.28),transparent 68%);
+  top:-40%;left:50%;transform:translateX(-50%);
+  pointer-events:none;z-index:0;
+}
+.page-hero-inner{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+}
+.tag-kicker{
+  position:relative;display:inline-block;
+  padding:7px 22px;background:#fff;border-radius:999px;
+  font-size:.95rem;letter-spacing:.04em;
+  transform:translate(var(--mx,0), var(--my,0)) rotate(var(--rot,-2deg));
+  box-shadow:3px 3px 0 var(--shadow);
+  transition:transform .35s var(--bounce);
+}
+.tag-kicker::before{
+  content:"";position:absolute;inset:0;border:2.3px solid var(--ink);
+  border-radius:999px;filter:url(#sketch);
+}
+.page-hero h1{
+  font-family:'Caveat',cursive;font-weight:700;
+  font-size:clamp(3rem,7vw,5.6rem);line-height:.9;
+  letter-spacing:-.005em;max-width:18ch;
+}
+.page-hero h1 .hl{position:relative;display:inline-block;z-index:1}
+.page-hero h1 .hl::after{
+  content:"";position:absolute;left:-.05em;right:-.05em;
+  top:.24em;bottom:.1em;background:var(--hl-color,#C9EFD6);
+  border-radius:6px;z-index:-1;transform:rotate(-1deg);
+  filter:url(#sketch);
+}
+.page-hero p{
+  font-size:1.05rem;color:var(--ink-soft);max-width:52ch;line-height:1.7;
+}
+
+/* ============================================================
+   10. SEC HEAD
+   ============================================================ */
+.sec-head{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  gap:14px;margin-bottom:clamp(40px,5.5vw,68px);position:relative;
+}
+.sec-title{
+  font-family:'Caveat',cursive;font-weight:700;
+  font-size:clamp(2.6rem,6vw,4.6rem);line-height:.92;
+  position:relative;width:max-content;max-width:100%;
+}
+.sec-title .hl{position:relative;display:inline-block;z-index:1}
+.sec-title .hl::after{
+  content:"";position:absolute;left:-.05em;right:-.05em;
+  top:.24em;bottom:.1em;background:var(--mint,#C9EFD6);
+  border-radius:6px;z-index:-1;
+  transform:rotate(-1deg) scaleX(0);transform-origin:left center;
+  filter:url(#sketch);
+  transition:transform 1.2s var(--bounce) .3s;
+}
+.sec-title.in .hl::after{transform:rotate(-1deg) scaleX(1)}
+.sec-note{font-size:1.02rem;color:var(--ink-soft);max-width:44ch}
+
+/* ============================================================
+   11. ADMISSION PROCESS — PATHWAY
+   ============================================================ */
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:clamp(18px,2.4vw,30px);
+  align-items:stretch;
+  perspective:1200px;
+  position:relative;
+}
+
+/* dotted connecting line behind the cards (desktop) */
+.process-grid::before{
+  content:"";
+  position:absolute;
+  top:68px;left:8%;right:8%;
+  height:2px;
+  background-image:linear-gradient(to right, var(--ink) 50%, transparent 0%);
+  background-size:14px 2px;
+  background-repeat:repeat-x;
+  opacity:.25;
+  z-index:0;
+  pointer-events:none;
+}
+
+.step-card{
+  position:relative;
+  z-index:1;
+  padding:clamp(28px,3vw,38px) clamp(20px,2.4vw,26px) clamp(26px,3vw,34px);
+  background:#fff;
+  border-radius:24px;
+  box-shadow:6px 7px 0 rgba(35,48,43,.11);
+  transform:rotate(var(--rot,0deg));
+  transition:transform .5s var(--bounce), box-shadow .45s var(--ease);
+}
+.step-card::before{
+  content:"";position:absolute;inset:0;
+  border:2.6px solid var(--ink);border-radius:24px;
+  filter:url(#sketch);pointer-events:none;
+}
+.step-card:nth-child(1){--rot:-1.4deg}
+.step-card:nth-child(2){--rot:1.1deg}
+.step-card:nth-child(3){--rot:-.7deg}
+.step-card:nth-child(4){--rot:1.3deg}
+.step-card:hover{
+  transform:rotate(0) translateY(-10px);
+  box-shadow:11px 15px 0 rgba(35,48,43,.15);
+  z-index:2;
+}
+
+.step-num{
+  width:60px;height:60px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:var(--tint,#FFF0C6);
+  font-family:'Caveat',cursive;
+  font-size:2rem;font-weight:700;
+  color:var(--ink);
+  position:relative;
+  margin-bottom:18px;
+  transition:transform .55s var(--spring);
+}
+.step-num::before{
+  content:"";position:absolute;inset:0;
+  border:2.4px solid var(--ink);border-radius:50%;
+  filter:url(#sketch);
+}
+.step-card:hover .step-num{transform:rotate(-10deg) scale(1.08)}
+
+.step-card h3{
+  font-family:'Caveat',cursive;font-weight:700;
+  font-size:clamp(1.35rem,2vw,1.6rem);
+  line-height:1.1;
+  margin-bottom:10px;
+}
+.step-card p{
+  font-size:.95rem;color:var(--ink-soft);line-height:1.6;
+}
+
+/* tiny step label */
+.step-label{
+  position:absolute;top:20px;right:22px;
+  font-family:'Patrick Hand',cursive;
+  font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  opacity:.6;
+}
+
+/* ============================================================
+   12. DOCUMENTS REQUIRED
+   ============================================================ */
+.docs-section{
+  position:relative;
+  padding:clamp(40px,6vw,80px) 0;
+  background:linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+  border-top:2px dashed rgba(35,48,43,.10);
+  border-bottom:2px dashed rgba(35,48,43,.10);
+  border-radius:40px;
+  margin:clamp(20px,4vw,50px) 0;
+}
+
+.docs-card{
+  position:relative;
+  max-width:820px;margin:0 auto;
+  padding:clamp(30px,4vw,48px) clamp(24px,4vw,44px);
+  background:#fff;border-radius:26px;
+  box-shadow:6px 7px 0 rgba(35,48,43,.11);
+  transform:rotate(-.6deg);
+  transition:transform .5s var(--bounce), box-shadow .45s var(--ease);
+}
+.docs-card::before{
+  content:"";position:absolute;inset:0;
+  border:2.8px solid var(--ink);border-radius:26px;
+  filter:url(#sketch);pointer-events:none;
+}
+.docs-card:hover{
+  transform:rotate(0) translateY(-6px);
+  box-shadow:11px 15px 0 rgba(35,48,43,.15);
+}
+.docs-tape{
+  position:absolute;top:-14px;left:50%;
+  width:120px;height:28px;
+  transform:translateX(-50%) rotate(-3deg);
+  background:var(--pink);opacity:.9;
+  clip-path:polygon(3% 0, 97% 5%, 100% 95%, 0 100%);
+  pointer-events:none;
+}
+
+.docs-head{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:24px;
+}
+.docs-icon{
+  width:64px;height:64px;flex-shrink:0;
+  display:grid;place-items:center;
+  border-radius:50%;background:#FFE9DA;
+  position:relative;
+}
+.docs-icon::before{
+  content:"";position:absolute;inset:0;
+  border:2.4px solid var(--ink);border-radius:50%;
+  filter:url(#sketch);
+}
+.docs-icon svg{
+  width:30px;height:30px;fill:none;stroke:var(--ink);
+  stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+}
+.docs-head h3{
+  font-family:'Caveat',cursive;font-weight:700;
+  font-size:clamp(1.8rem,3vw,2.4rem);
+  line-height:1;margin:0;
+}
+.docs-head p{
+  font-size:.95rem;color:var(--ink-soft);margin-top:6px;
+}
+
+.docs-list{
+  display:flex;flex-direction:column;gap:12px;
+}
+.docs-list li{
+  position:relative;
+  display:flex;align-items:flex-start;gap:14px;
+  padding:16px 20px;
+  background:var(--paper-2);
+  border-radius:14px;
+  font-size:1rem;
+  color:var(--ink);
+  line-height:1.5;
+  transform:rotate(var(--r,0deg));
+  transition:transform .4s var(--spring), background .3s;
+}
+.docs-list li::before{
+  content:"";position:absolute;inset:0;
+  border:2px solid var(--ink);border-radius:14px;
+  filter:url(#sketch);pointer-events:none;
+}
+.docs-list li:nth-child(1){--r:-.4deg}
+.docs-list li:nth-child(2){--r:.5deg}
+.docs-list li:nth-child(3){--r:-.3deg}
+.docs-list li:nth-child(4){--r:.4deg}
+.docs-list li:hover{
+  transform:rotate(0) translateX(6px);
+  background:#fff;
+}
+
+.doc-check{
+  flex-shrink:0;
+  width:28px;height:28px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:var(--dot, var(--green));
+  border:2px solid var(--ink);
+  margin-top:1px;
+}
+.doc-check svg{
+  width:14px;height:14px;
+  stroke:var(--ink);
+  fill:none;
+  stroke-width:3.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* ============================================================
+   13. CTA — BOOK A TOUR
+   ============================================================ */
+.cta-band{
+  position:relative;
+  padding:clamp(50px,7vw,90px) 0 clamp(20px,4vw,40px);
+}
+
+.cta-card{
+  position:relative;
+  max-width:880px;margin:0 auto;
+  padding:clamp(38px,5vw,64px) clamp(24px,4vw,52px);
+  background:linear-gradient(170deg, #FFF8E5 0%, #FFFCF3 55%, #FFF1E2 100%);
+  border-radius:32px;
+  text-align:center;
+  box-shadow:8px 10px 0 rgba(35,48,43,.14);
+  transform:rotate(-.8deg);
+  transition:transform .5s var(--bounce), box-shadow .45s var(--ease);
+  overflow:hidden;
+}
+.cta-card::before{
+  content:"";position:absolute;inset:0;
+  border:3px solid var(--ink);border-radius:32px;
+  filter:url(#sketch);pointer-events:none;z-index:3;
+}
+.cta-card:hover{
+  transform:rotate(0) translateY(-8px);
+  box-shadow:13px 17px 0 rgba(35,48,43,.16);
+}
+.cta-tape{
+  position:absolute;top:-15px;left:50%;
+  width:140px;height:30px;
+  transform:translateX(-50%) rotate(-3deg);
+  background:var(--yellow);opacity:.92;
+  clip-path:polygon(3% 0, 97% 5%, 100% 95%, 0 100%);
+  z-index:4;pointer-events:none;
+}
+
+.cta-spark{
+  position:absolute;pointer-events:none;z-index:2;
+}
+.cs1{width:34px;top:8%;left:6%;animation:twinkle 2.8s ease-in-out infinite}
+.cs2{width:26px;top:16%;right:8%;animation:twinkle 3.4s ease-in-out infinite .7s}
+.cs3{width:30px;bottom:12%;left:12%;animation:twinkle 3.1s ease-in-out infinite 1.2s}
+.cs4{width:22px;bottom:8%;right:10%;animation:twinkle 3.6s ease-in-out infinite .4s}
+@keyframes twinkle{
+  0%,100%{opacity:.55;transform:scale(.85) rotate(0)}
+  50%{opacity:1;transform:scale(1.12) rotate(8deg)}
+}
+
+.cta-icon{
+  width:80px;height:80px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:#fff;
+  position:relative;
+  margin:0 auto 22px;
+  z-index:2;
+}
+.cta-icon::before{
+  content:"";position:absolute;inset:0;
+  border:2.6px solid var(--ink);border-radius:50%;
+  filter:url(#sketch);
+}
+.cta-icon svg{
+  width:38px;height:38px;fill:none;stroke:var(--ink);
+  stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+}
+
+.cta-card h2{
+  font-family:'Caveat',cursive;font-weight:700;
+  font-size:clamp(2.4rem,5vw,3.6rem);
+  line-height:.92;letter-spacing:-.01em;
+  max-width:16ch;margin:0 auto 16px;
+  position:relative;z-index:2;
+}
+.cta-card h2 .hl{position:relative;display:inline-block;z-index:1}
+.cta-card h2 .hl::after{
+  content:"";position:absolute;left:-.05em;right:-.05em;
+  top:.24em;bottom:.1em;background:#FFE0CC;
+  border-radius:6px;z-index:-1;transform:rotate(-1deg);
+  filter:url(#sketch);
+}
+
+.cta-card p{
+  font-size:1.05rem;line-height:1.7;
+  color:var(--ink-soft);
+  max-width:46ch;margin:0 auto 28px;
+  position:relative;z-index:2;
+}
+.cta-card p em{
+  font-style:normal;color:var(--red);
+  position:relative;display:inline-block;padding:0 .05em;
+}
+.cta-card p em::after{
+  content:"";position:absolute;left:-.03em;right:-.03em;bottom:-.06em;
+  height:.16em;background:var(--yellow);border-radius:4px;
+  filter:url(#sketch);
+}
+
+.cta-actions{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:14px;
+  position:relative;z-index:2;
+}
+
+/* ============================================================
+   14. BACK TO TOP
+   ============================================================ */
+.to-top-fab{
+  position:fixed;
+  right:clamp(16px,3vw,32px);
+  bottom:clamp(16px,3vw,32px);
+  width:56px;height:56px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--yellow);color:var(--ink);
+  z-index:400;opacity:0;visibility:hidden;
+  transform:translateY(20px) scale(.8);
+  transition:opacity .4s var(--ease), transform .5s var(--bounce), visibility .4s, background .3s;
+  box-shadow:4px 4px 0 var(--shadow);
+}
+.to-top-fab.show{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.to-top-fab:hover{background:#fff;transform:translateY(-4px) scale(1.06)}
+.to-top-fab svg.arrow{width:20px;height:20px}
+.to-top-fab svg.prog-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.to-top-fab .prog-ring circle{
+  fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;
+  stroke-dasharray:138.2;
+  stroke-dashoffset:calc(138.2 - (138.2 * var(--p, 0)));
+  opacity:.85;
+  transition:stroke-dashoffset .1s linear;
+}
+
+/* ============================================================
+   15. FOOTER
+   ============================================================ */
+.footer{
+  position:relative;
+  margin-top:clamp(40px,6vw,80px);
+  background:var(--ink);color:var(--paper);
+  padding:clamp(50px,7vw,84px) 0 30px;
+  border-radius:52px 52px 0 0;overflow:hidden;
+}
+.footer::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,252,243,.14) 1.1px, transparent 1.1px);
+  background-size:26px 26px;opacity:.5;
+}
+.footer-doodles{position:absolute;inset:0;pointer-events:none;opacity:.35;width:100%;height:100%}
+.footer-inner{position:relative;z-index:2}
+.foot-top{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr;
+  gap:clamp(28px,5vw,60px);
+  padding-bottom:clamp(34px,5vw,56px);
+}
+.foot-brand .brand-logo{
+  height:76px;max-width:250px;padding:10px 14px;
+  background:var(--paper);border-radius:14px;
+  transform:rotate(-2.5deg);
+  box-shadow:3px 4px 0 rgba(0,0,0,.35);
+  filter:none;
+}
+.foot-brand .brand:hover .brand-logo{transform:rotate(1deg) scale(1.05)}
+.foot-brand p{
+  margin-top:20px;max-width:32ch;
+  font-size:.98rem;color:rgba(255,252,243,.66);line-height:1.65;
+}
+.foot-col h5{
+  font-family:'Caveat',cursive;font-size:1.4rem;
+  font-weight:700;color:var(--yellow);margin-bottom:14px;
+}
+.foot-col ul{display:flex;flex-direction:column;gap:10px}
+.foot-col a{
+  font-size:1rem;color:rgba(255,252,243,.8);
+  display:inline-block;
+  transition:color .3s, transform .4s var(--spring);
+}
+.foot-col a:hover{color:var(--yellow);transform:translateX(6px) rotate(-1deg)}
+
+.foot-badges{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.foot-badges .sticker{
+  background:transparent;color:var(--paper);box-shadow:none;
+  transform:rotate(var(--rot,-1.5deg));
+  font-size:.86rem;padding:6px 14px 6px 10px;border-radius:12px;
+}
+.foot-badges .sticker::before{border-color:rgba(255,252,243,.5);border-width:1.8px}
+.foot-badges .sticker svg{stroke:var(--yellow)}
+
+.foot-big{
+  font-family:'Caveat',cursive;font-weight:700;
+  font-size:clamp(3.4rem,13vw,10rem);line-height:.78;
+  letter-spacing:-.01em;color:rgba(255,252,243,.10);
+  border-top:2px dashed rgba(255,252,243,.18);
+  padding-top:clamp(24px,3.5vw,42px);
+  white-space:nowrap;overflow:hidden;user-select:none;
+}
+.foot-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:18px;flex-wrap:wrap;padding-top:24px;
+  font-size:.88rem;color:rgba(255,252,243,.5);
+}
+.to-top{
+  display:inline-flex;align-items:center;gap:7px;
+  color:rgba(255,252,243,.8);font-weight:400;
+  transition:color .3s,gap .4s var(--spring);
+}
+.to-top:hover{color:var(--yellow);gap:12px}
+
+/* ============================================================
+   16. RESPONSIVE
+   ============================================================ */
+@media (max-width:1280px){
+  .header-nav{gap:clamp(8px,1vw,14px);font-size:.9rem}
+}
+@media (max-width:1080px){
+  .header-nav{display:none}
+  .process-grid{grid-template-columns:repeat(2,1fr);gap:26px}
+  .process-grid::before{display:none}
+}
+@media (max-width:820px){
+  .foot-top{grid-template-columns:1fr 1fr}
+  .foot-brand{grid-column:span 2}
+}
+@media (max-width:660px){
+  body{font-size:16px}
+  .header-actions .btn--ghost{display:none}
+  .brand-logo{height:48px;max-width:170px}
+  .header.scrolled .brand-logo{height:40px;max-width:140px}
+  .foot-brand .brand-logo{height:64px;max-width:210px}
+  .process-grid{grid-template-columns:1fr;gap:22px}
+  .step-card{padding:26px 20px 24px}
+  .foot-top{grid-template-columns:1fr}
+  .foot-brand{grid-column:span 1}
+  .to-top-fab{width:48px;height:48px}
+  .docs-card{padding:28px 20px}
+  .docs-head{flex-direction:column;text-align:center;gap:12px}
+  .docs-list li{padding:14px 16px;font-size:.95rem}
+  .cta-card{padding:36px 22px 32px}
+  .cta-actions .btn{width:100%;justify-content:center}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+  .reveal{opacity:1;transform:none}
+  .cursor-dot,.cursor-ring{display:none !important}
+  .sec-title .hl::after{transform:rotate(-1deg) scaleX(1)}
+}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader" aria-hidden="true">
+  <div class="preloader-inner">
+    <div class="preloader-mark">Wonder Whiz</div>
+    <div class="preloader-dots"><i></i><i></i><i></i></div>
+  </div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- SVG FILTERS -->
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <filter id="sketch" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.032" numOctaves="3" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <a class="brand" href="index.html" aria-label="Wonder Whiz Kids Nursery — home">
+    <img class="brand-logo" src="main-logo.png" alt="Wonder Whiz Kids Nursery" />
+  </a>
+
+  <nav class="header-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="curriculum.html">Curriculum</a>
+    <a href="programs.html">Programs</a>
+    <a href="admissions.html" class="active">Admissions</a>
+    <a href="educators.html">Educators</a>
+    <a href="policy.html">Policy</a>
+    <a href="timings.html">Timings</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="header-actions">
+    <a class="btn btn--ghost btn--sm" href="gallery.html">Photos</a>
+    <a class="btn btn--primary btn--sm" href="contact.html">Book a Tour</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="wrap page-hero-inner">
+      <span class="tag-kicker">Admissions</span>
+      <h1>Joining the <span class="hl" style="--hl-color:#FFE0CC">Wonder Whiz</span> family</h1>
+      <p>Four simple steps. No pressure, no sales pitch — just a proper chance to see whether we're the right fit for your family.</p>
+    </div>
+  </section>
+
+  <!-- ADMISSION PROCESS -->
+  <section class="section" style="padding-top:clamp(30px,4vw,60px)">
+    <div class="wrap">
+
+      <div class="sec-head">
+        <span class="tag-kicker reveal-left">Admission Process</span>
+        <h2 class="sec-title reveal" style="--d:.06s">
+          Four simple <span class="hl" style="--mint:#C9EFD6">steps</span>
+        </h2>
+      </div>
+
+      <div class="process-grid">
+
+        <article class="step-card reveal-pop">
+          <span class="step-label">Step 01</span>
+          <div class="step-num" style="--tint:#FFF0C6">1</div>
+          <h3>Schedule a tour or consultation</h3>
+          <p>Visit us on a Tuesday or Thursday morning. 45 minutes to see the rooms, meet the team, and ask us anything.</p>
+        </article>
+
+        <article class="step-card reveal-pop" style="--d:.08s">
+          <span class="step-label">Step 02</span>
+          <div class="step-num" style="--tint:#E3F2FA">2</div>
+          <h3>Submit registration form &amp; documents</h3>
+          <p>A short application plus the documents listed below. We'll respond within one working week.</p>
+        </article>
+
+        <article class="step-card reveal-pop" style="--d:.16s">
+          <span class="step-label">Step 03</span>
+          <div class="step-num" style="--tint:#FFE9DA">3</div>
+          <h3>Pay registration &amp; term fees</h3>
+          <p>A one-time registration fee secures your child's place, followed by the term fee. Payment plans available.</p>
+        </article>
+
+        <article class="step-card reveal-pop" style="--d:.24s">
+          <span class="step-label">Step 04</span>
+          <div class="step-num" style="--tint:#E7F5EE">4</div>
+          <h3>Orientation &amp; settling-in phase</h3>
+          <p>A gentle two-week settling plan led by your child's key person. Short visits, then longer stays — at their pace.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCUMENTS REQUIRED -->
+  <section class="docs-section">
+    <div class="wrap">
+      <div class="docs-card reveal">
+
+        <span class="docs-tape" aria-hidden="true"></span>
+
+        <div class="docs-head">
+          <div class="docs-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+              <path d="M14 3v6h6"/>
+              <path d="M9 14l2 2 4-4"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Documents Required</h3>
+            <p>Please bring these with you when you visit, or email copies to <a href="mailto:hello@wonderwhiz.ae" style="color:var(--red)">hello@wonderwhiz.ae</a>.</p>
+          </div>
+        </div>
+
+        <ul class="docs-list">
+          <li style="--dot:#BFE8CC">
+            <span class="doc-check">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <span>Passport copies (child + parents)</span>
+          </li>
+          <li style="--dot:#B9DDEE">
+            <span class="doc-check">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <span>Emirates ID (child + parents)</span>
+          </li>
+          <li style="--dot:#FFCBA8">
+            <span class="doc-check">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <span>Vaccination records</span>
+          </li>
+          <li style="--dot:#DED4F3">
+            <span class="doc-check">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <span>Passport size photos</span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA — BOOK A TOUR -->
+  <section class="cta-band">
+    <div class="wrap">
+      <div class="cta-card reveal">
+
+        <span class="cta-tape" aria-hidden="true"></span>
+
+        <svg class="cta-spark cs1" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 4c1.7 9.4 3.9 11.6 13.3 13.3C23.9 19 21.7 21.2 20 30.6 18.3 21.2 16.1 19 6.7 17.3 16.1 15.6 18.3 13.4 20 4z"
+                fill="#F8CE5A" stroke="#23302B" stroke-width="2.4" stroke-linejoin="round"/>
+        </svg>
+        <svg class="cta-spark cs2" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 33c-8-5-13-9.5-13-15a7 7 0 0 1 13-3.6A7 7 0 0 1 33 18c0 5.5-5 10-13 15z"
+                fill="#F2A2B4" stroke="#23302B" stroke-width="2.4" stroke-linejoin="round"/>
+        </svg>
+        <svg class="cta-spark cs3" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="13" fill="none" stroke="#F49A5B"
+                  stroke-width="3.2" stroke-dasharray="5 7" stroke-linecap="round"/>
+        </svg>
+        <svg class="cta-spark cs4" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M14 8l14 4-4 14-14-4z" fill="none" stroke="#7FBE8C"
+                stroke-width="3.2" stroke-linejoin="round"/>
+        </svg>
+
+        <div class="cta-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 21s-7-4.4-7-9.5A7 7 0 0 1 12 4a7 7 0 0 1 7 7.5C19 16.6 12 21 12 21z"/>
+            <circle cx="12" cy="11" r="2.6"/>
+          </svg>
+        </div>
+
+        <h2>Book a Tour <span class="hl">Today</span>!</h2>
+        <p>
+          We'd love to meet you and your little one. Schedule a tour and experience our
+          <em>magical learning environment</em> in person.
+        </p>
+
+        <div class="cta-actions">
+          <a class="btn btn--primary btn--lg" href="contact.html" style="--rot:-1.2deg">
+            Schedule Now <span style="font-size:1.2em">→</span>
+          </a>
+          <a class="btn btn--lg" href="tel:+97140000000" style="--rot:1deg">
+            Call +971 4 000 0000
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <svg class="footer-doodles" viewBox="0 0 1400 500" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="none" stroke="#FFFCF3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M120 90c30-40 70-40 100 0s70 40 100 0"/>
+      <path d="M1180 150c-24-30-56-30-80 0s-56 30-80 0"/>
+      <circle cx="1290" cy="70" r="26"/>
+      <circle cx="120" cy="400" r="18"/>
+    </g>
+  </svg>
+
+  <div class="wrap footer-inner">
+    <div class="foot-top">
+
+      <div class="foot-brand reveal">
+        <a class="brand" href="index.html" aria-label="Wonder Whiz Kids Nursery — home">
+          <img class="brand-logo" src="main-logo.png" alt="Wonder Whiz Kids Nursery logo" />
+        </a>
+        <p>Where little minds meet big wonder, every single day.</p>
+
+        <div class="foot-badges">
+          <span class="sticker" style="--rot:-1.5deg">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            KHDA Approved
+          </span>
+          <span class="sticker" style="--rot:1.5deg">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            EYFS British Curriculum
+          </span>
+          <span class="sticker" style="--rot:-.8deg">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            Ages 45 Days to 5 Years
+          </span>
+        </div>
+      </div>
+
+      <div class="foot-col reveal" style="--d:.08s">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="curriculum.html">Curriculum</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="educators.html">Our Educators</a></li>
+          <li><a href="timings.html">Timings</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col reveal" style="--d:.16s">
+        <h5>Get in Touch</h5>
+        <ul>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="policy.html">Policies</a></li>
+          <li><a href="contact.html">Book a Tour</a></li>
+          <li><a href="tel:+971553681122">+971 55 368 1122</a></li>
+          <li><a href="mailto:info@wonderwhizkids.in">info@wonderwhizkids.in</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-big" aria-hidden="true">wonder whiz</div>
+
+    <div class="foot-bottom">
+      <span>© 2025 Wonder Whiz Kids Nursery · All rights reserved</span>
+      <a class="to-top" href="#top">
+        Back to top
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 19V5"/><path d="M5 12l7-7 7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="to-top-fab" id="toTopFab" aria-label="Back to top">
+  <svg class="prog-ring" viewBox="0 0 48 48" aria-hidden="true">
+    <circle cx="24" cy="24" r="22"></circle>
+  </svg>
+  <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5"/><path d="M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<script>
+(function () {
+  'use strict';
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canHover = window.matchMedia('(pointer:fine)').matches;
+
+  /* PRELOADER */
+  const finishLoad = () => document.body.classList.add('loaded');
+  window.addEventListener('load', finishLoad);
+  setTimeout(finishLoad, 1600);
+
+  /* CUSTOM CURSOR */
+  if (canHover && !reduceMotion) {
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    if (dot && ring) {
+      let mx = -100, my = -100, rx = -100, ry = -100, visible = false;
+      const setVisible = v => { visible = v; dot.style.opacity = v ? 1 : 0; ring.style.opacity = v ? 1 : 0; };
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX; my = e.clientY;
+        if (!visible) { rx = mx; ry = my; setVisible(true); }
+        dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+      });
+      document.addEventListener('mouseleave', () => setVisible(false));
+      document.addEventListener('mouseenter', () => { if (mx > 0) setVisible(true); });
+      document.addEventListener('mousedown', () => ring.classList.add('press'));
+      document.addEventListener('mouseup', () => ring.classList.remove('press'));
+      const raf = () => {
+        rx += (mx - rx) * 0.15; ry += (my - ry) * 0.15;
+        ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
+        requestAnimationFrame(raf);
+      };
+      raf();
+
+      const hoverSelectors = '.sticker, .tag-kicker, .step-card, .docs-card, .docs-list li, .cta-card';
+      const linkSelectors = 'a, button, .btn';
+
+      document.querySelectorAll(hoverSelectors).forEach(el => {
+        el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
+      });
+      document.querySelectorAll(linkSelectors).forEach(el => {
+        el.addEventListener('mouseenter', () => { ring.classList.add('hovering','link-hover'); dot.classList.add('hovering'); });
+        el.addEventListener('mouseleave', () => { ring.classList.remove('link-hover'); dot.classList.remove('hovering'); });
+      });
+    }
+  }
+
+  /* SCROLL / HEADER / FAB */
+  const header = document.getElementById('header');
+  const progressBar = document.querySelector('.scroll-progress span');
+  const fab = document.getElementById('toTopFab');
+  let lastY = -1, ticking = false;
+
+  function updateScrollUI() {
+    const y = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? Math.min(1, y / max) : 0;
+    if (y !== lastY) {
+      lastY = y;
+      header.classList.toggle('scrolled', y > 20);
+      if (fab) fab.classList.toggle('show', y > 620);
+    }
+    if (progressBar) progressBar.style.width = (pct * 100) + '%';
+    if (fab) fab.style.setProperty('--p', pct.toFixed(4));
+    ticking = false;
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(updateScrollUI); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updateScrollUI();
+
+  if (fab) fab.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
+
+  /* REVEAL */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-pop');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
+  /* MAGNETIC BUTTONS */
+  if (canHover && !reduceMotion) {
+    const magnets = document.querySelectorAll('.btn, .sticker, .tag-kicker');
+    const strength = 0.28;
+    magnets.forEach(el => {
+      el.addEventListener('mousemove', e => {
+        const r = el.getBoundingClientRect();
+        const x = e.clientX - r.left - r.width / 2;
+        const y = e.clientY - r.top - r.height / 2;
+        el.style.setProperty('--mx', (x * strength).toFixed(1) + 'px');
+        el.style.setProperty('--my', (y * strength).toFixed(1) + 'px');
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.setProperty('--mx', '0px');
+        el.style.setProperty('--my', '0px');
+      });
+    });
+  }
+
+  /* SMOOTH ANCHOR */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const id = link.getAttribute('href');
+      if (!id || id === '#' || id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
